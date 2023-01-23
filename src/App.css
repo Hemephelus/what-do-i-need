@@ -1,38 +1,194 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 40px 60px 160px 60px;
+  background: linear-gradient(to bottom, #FFFFFE, #6246EA);
+  font-family: 'Montserrat', sans-serif;
+  color: #2B2C34;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
   display: flex;
   flex-direction: column;
+  gap: 160px;
+}
+
+.App-header{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header-links{
+  display: flex;
+  gap: 40px;
+} 
+
+.header-link{
+  color: #6246EA;
+  font-weight: 600;
+  font-size: 16px;
+} 
+
+
+.App-name:hover{
+  scale: 105%;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-link:hover{
+  color: #2B2C34;
+  scale: 105%;
+  cursor: pointer;
 }
+
+.App-body{
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+
+.Hero-headline{
+  font-size: 64px;
+  font-weight: bold;
+}
+.Hero-sub-headline{
+  font-size: 32px;
+  font-weight: 400;
+  width: 40%;
+  color: #464646;
+}
+
+.Hero-sub-headline p{
+  font-size: 32px;
+  font-weight: 500;
+  color: #464646;
+}
+
+.Hero-section{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+button{
+  border: none;
+  padding: 8px 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+button:hover{
+   cursor: pointer;
+   scale: 105%;
+}
+
+.Primary-button{
+  background: #6246EA;
+  color: #FFFFFE;
+  border-radius: 8px;
+}
+.Secondary-button{
+  background: #FFFFFE;
+  color: #6246EA;
+  border-radius: 8px;
+}
+
+.Hero-buttons{
+  display: flex;
+  gap: 32px;
+}
+
+.feature-title{
+  font-weight: bold;
+  font-size: 32px;
+
+}
+
+
+
+
+.App-footer{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+
+.footer-links{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-link{
+  color: #FFFFFE;
+  font-weight: 600;
+  font-size: 16px;
+} 
+
+.footer-link:hover{
+  color: #2B2C34;
+  scale: 105%;
+  cursor: pointer;
+}
+
+.feature-section{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.feature-line{
+  height: 10px;
+  width: 100px;
+  background: #6246EA;
+}
+
+.feature-headline{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature{
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature > p{
+  font-weight: 500;
+  color: #DEDEDE;
+  font-size: 16px;
+}
+
+.feature > h1{
+  font-weight: 600;
+  color: #2B2C34;
+  font-size: 20px;
+}
+
+.feature > figure > img{
+  font-weight: 600;
+  color: #2B2C34;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.features{
+  display: flex;
+  gap: 80px;
+}
+
+
+
