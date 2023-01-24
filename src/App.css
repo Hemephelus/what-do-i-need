@@ -6,17 +6,46 @@
 }
 
 body {
-  margin: 40px 60px 160px 60px;
+  margin: 32px 32px 80px 32px;
   background: linear-gradient(to bottom, #FFFFFE, #6246EA);
   font-family: 'Montserrat', sans-serif;
   color: #2B2C34;
 }
 
+.Hero-sub-headline p{
+  font-size: 16px;
+  font-weight: 500;
+  color: #464646;
+}
+
+ .feature > h1{
+  @apply text-[#2B2C34] font-semibold font-[16px];
+}
+
+
+.feature{
+  @apply flex flex-col items-center gap-[16px] max-w-[250px] ;
+}
+
+.feature > p{
+  @apply  text-[#F5F5F5] font-medium font-[12px];
+} 
+
+
+@media (min-width: 640px) { 
+  body {
+    margin: 40px 60px 160px 60px;
+    background: linear-gradient(to bottom, #FFFFFE, #6246EA);
+    font-family: 'Montserrat', sans-serif;
+    color: #2B2C34;
+  }
+ 
 
 .App{
   display: flex;
   flex-direction: column;
   gap: 160px;
+ 
 }
 
 .App-header{
@@ -36,6 +65,11 @@ body {
   font-size: 16px;
 } 
 
+.App-name{
+  font-weight: 700;
+  font-size: 32px;
+  cursor: pointer;
+}
 
 .App-name:hover{
   scale: 105%;
@@ -52,6 +86,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 160px;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .Hero-headline{
@@ -61,7 +97,6 @@ body {
 .Hero-sub-headline{
   font-size: 32px;
   font-weight: 400;
-  width: 40%;
   color: #464646;
 }
 
@@ -76,6 +111,7 @@ body {
   flex-direction: column;
   gap: 40px;
 }
+
 button{
   border: none;
   padding: 8px 16px;
@@ -103,12 +139,14 @@ button:hover{
 .Hero-buttons{
   display: flex;
   gap: 32px;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .feature-title{
   font-weight: bold;
   font-size: 32px;
-
+  
 }
 
 
@@ -121,6 +159,7 @@ button:hover{
   gap: 40px;
   flex-wrap: wrap;
   width: fit-content;
+  align-items: flex-start;
 }
 
 .footer-links{
@@ -145,6 +184,7 @@ button:hover{
   display: flex;
   flex-direction: column;
   gap: 40px;
+  align-items: flex-start;
 }
 
 .feature-line{
@@ -157,19 +197,24 @@ button:hover{
   display: flex;
   flex-direction: column;
   gap: 8px;
+  align-items: flex-start;
 }
 
 .feature{
-  width: 250px;
+  min-width: 200px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .feature > p{
   font-weight: 500;
-  color: #DEDEDE;
+  color: #F5F5F5;
   font-size: 16px;
+  max-width: 250px;
 }
 
 .feature > h1{
@@ -183,12 +228,16 @@ button:hover{
   color: #2B2C34;
   font-size: 20px;
   margin-bottom: 20px;
+  
 }
+
 
 .features{
   display: flex;
-  gap: 80px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 
-
+}
