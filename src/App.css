@@ -69,7 +69,6 @@ body {
 .App-name{
   font-weight: 700;
   font-size: 32px;
-  cursor: pointer;
 }
 
 .App-name:hover{
@@ -241,4 +240,35 @@ button:hover{
 }
 
 
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+/* ..my-scrollbar::-webkit-scrollbar {
+  display: none;
+} */
+
+/* For IE, Edge and Firefox */
+.my-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* width */
+.my-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.my-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.my-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+.my-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
