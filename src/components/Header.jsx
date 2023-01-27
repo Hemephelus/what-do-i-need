@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
+    
     <div>
+    
         <div className="flex justify-between App-header">
-            <Link to="/homepage">
+            <Link to="/">
         <h1 className="text-[16px] font-semibold App-name">WDIN</h1>
             </Link>
         <div className="flex gap-[16px] header-links">

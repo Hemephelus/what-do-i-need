@@ -1,15 +1,18 @@
 const yourDetailsDropDown = {
   Universities: {
+    name: "Universities",
     labeName: "Select University",
     placeholderName: "Enter University name",
-    UniversityList: [
+    listItems: [
       { name: "Pan-Atlantic University" },
+      { name: "Others" },
     ],
   },
   Departments: {
+    name: "Departments",
     labeName: "Select Departments",
     placeholderName: "Enter Departments name",
-    UniversityList: [
+    listItems: [
       { name: "ACCOUNTING" },
       { name: "BANKING AND FINANCE" },
       { name: "BUSINESS ADMINISTRATION" },
@@ -21,22 +24,27 @@ const yourDetailsDropDown = {
       { name: "MASS COMMUNICATION" },
       { name: "MARKETING" },
       { name: "MECHANICAL ENGINEERING" },
+      { name: "Others" },
     ],
   },
   DurationOfCourse: {
+    name: "DurationOfCourse",
     labeName: "Select Duration Of Course",
     placeholderName: "Enter Duration",
-    UniversityList: [
-      { name: 2 },
-      { name: 3 },
-      { name: 4 },
-      { name: 5 },
+    listItems: [
+      { name: "2 years", years: 2},
+      { name: "3 years" , years: 3},
+      { name: "4 years" , years: 4},
+      { name: "5 years" , years: 5},
+      { name: "6 years" ,years: 6},
+      
     ],
   },
   ClassLevels: {
+    name: "ClassLevels", 
     labeName: "Select Class Levels",
     placeholderName: "Enter Class Levels",
-    UniversityList: [
+    listItems: [
       { name: "First Class" },
       { name: "Second Class Upper" },
       { name: "Second Class Lower" },

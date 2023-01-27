@@ -3,10 +3,11 @@ import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 
 
-const Selector = ({DropDownList}) => {
+const Selector = ({DropDownList,callback}) => {
+  const selectionName = DropDownList.name
     const labeName = DropDownList.labeName
     const placeholderName = DropDownList.placeholderName
-    const UniversityList = DropDownList.UniversityList
+    const listItems = DropDownList.listItems
 
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState("");
@@ -14,10 +15,10 @@ const Selector = ({DropDownList}) => {
     
 
   return (
-    <div className="w-72 font-medium">
+    <div className="font-regular">
       <div
         onClick={() => setOpen(!open)}
-        className={`bg-white w-full h-[40px] p-2 flex items-center justify-between rounded ${
+        className={`bg-white min-w-[200px] w-full h-[35px] p-2 flex items-center justify-between rounded overflow-hidden border hover:border-slate-500 ${
           !selected && "text-gray-700"
         }`}
       >
@@ -40,31 +41,33 @@ const Selector = ({DropDownList}) => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value.toLowerCase())}
             placeholder= {placeholderName}
-            className="placeholder:text-gray-700 p-2 outline-none"
+            className="placeholder:text-gray-700 p-2 outline-none "
           />
         </div>
-        {UniversityList?.map((country) => (
+        {listItems?.map((listItem) => (
           <li
-            key={country?.name}
+            key={listItem?.name}
             className={`p-2 text-sm hover:bg-sky-600 hover:text-white
             ${
-              country?.name?.toLowerCase() === selected?.toLowerCase() &&
+              listItem?.name?.toLowerCase() === selected?.toLowerCase() &&
               "bg-sky-600 text-white"
             }
             ${
-                country?.name?.toLowerCase().startsWith(inputValue)
+                listItem?.name?.toLowerCase().startsWith(inputValue)
                 ? "block"
                 : "hidden"
             }`}
             onClick={() => {
-              if (country?.name?.toLowerCase() !== selected.toLowerCase()) {
-                setSelected(country?.name);
+              if (listItem?.name?.toLowerCase() !== selected.toLowerCase()) {
+                setSelected(listItem?.name);
                 setOpen(false);
+                callback(listItem?.name,selectionName)
                 setInputValue("");
               }
+
             }}
           >
-            {country?.name}
+            {listItem?.name}
           </li>
         ))}
       </ul>
