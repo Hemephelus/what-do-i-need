@@ -13,7 +13,7 @@ const Dashboard = () => {
     console.log( JSON.parse(localStorage.getItem('CalcDetails')) )
   return (
     <div>
-         <div className="main-summary-app h-screen bg-[#D1D1E9] grid grid-cols-[auto_minmax(auto,_1fr)_400px] w-full">
+         <div className="main-summary-app relative bg-[#D1D1E9] grid grid-cols-[auto_minmax(auto,_1fr)_400px] w-full">
         {/* Components
               SideBar
               main-section
