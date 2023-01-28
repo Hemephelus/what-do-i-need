@@ -57,11 +57,10 @@ const yourDetailsDropDown = {
     Universities: "",
     Departments: "",
     DurationOfCourse: "",
-    // ClassLevels: "",
 },
 
 GpaData: {
-  
+
 }
 
 }
