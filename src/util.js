@@ -32,11 +32,11 @@ const yourDetailsDropDown = {
     labeName: "Select Duration Of Course",
     placeholderName: "Enter Duration",
     listItems: [
-      { name: "2 years", years: 2},
-      { name: "3 years" , years: 3},
-      { name: "4 years" , years: 4},
-      { name: "5 years" , years: 5},
-      { name: "6 years" ,years: 6},
+      { name: "2 years", "2 years": 2},
+      { name: "3 years" , "3 years": 3},
+      { name: "4 years" , "4 years": 4},
+      { name: "5 years" , "5 years": 5},
+      { name: "6 years" ,"6 years": 6},
       
     ],
   },
@@ -45,12 +45,25 @@ const yourDetailsDropDown = {
     labeName: "Select Class Levels",
     placeholderName: "Enter Class Levels",
     listItems: [
-      { name: "First Class" },
-      { name: "Second Class Upper" },
-      { name: "Second Class Lower" },
-      { name: "Third Class" },
+      { name: "First Class", CGPA: 4.495},
+      { name: "Second Class Upper", CGPA: 3.495 },
+      { name: "Second Class Lower", CGPA: 2.495 },
+      { name: "Third Class", CGPA: 0.0 },
     ],
   },
-};
+
+  UserData : {
+    FullName: "",
+    Universities: "",
+    Departments: "",
+    DurationOfCourse: "",
+    // ClassLevels: "",
+},
+
+GpaData: {
+  
+}
+
+}
 
 export default yourDetailsDropDown

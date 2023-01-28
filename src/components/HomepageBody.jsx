@@ -35,13 +35,13 @@ const HomepageBody = () => {
           </div>
           <div className="flex flex-col items-center gap-[16px] Hero-buttons">
             <Link to="/your-details">
-            <button className="bg-[#6246EA] text-[#fffffe] rounded-lg px-[16px] py-[8px] font-semibold Primary-button">
-              Summary Calculation
+            <button className="bg-[#6246EA] text-[#fffffe] rounded-lg px-[64px] py-[16px] font-semibold Primary-button">
+              CALCULATE
             </button>
             </Link>
-            <button className="bg-[#FFFFFE] text-[#6246EA] rounded-lg px-[16px] py-[8px] font-semibold Secondary-button">
+            {/* <button className="bg-[#FFFFFE] text-[#6246EA] rounded-lg px-[16px] py-[8px] font-semibold Secondary-button">
               Comprehensive Calculation
-            </button>
+            </button> */}
           </div>
         </div>
 

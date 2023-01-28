@@ -8,7 +8,7 @@ import YourDetails from "./YourDetails";
 
 const Homepage = () => {
   return (
-    <div  className="flex flex-col gap-[80px] App">
+    <div  className="flex flex-col gap-[80px]  mx-[32px] mt-[32px] mb-[80px] App">
         <Header />
       <Routes>
        

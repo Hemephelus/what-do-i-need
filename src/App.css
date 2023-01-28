@@ -6,7 +6,7 @@
 }
 
 body {
-  margin: 32px 32px 80px 32px;
+  
   background: linear-gradient(to bottom, #FFFFFE, #6246EA);
   font-family: 'Montserrat', sans-serif;
   color: #2B2C34;
@@ -34,7 +34,7 @@ body {
 
 @media (min-width: 640px) { 
   body {
-    margin: 40px 60px 160px 60px;
+    
     background: linear-gradient(to bottom, #FFFFFE, #6246EA);
     font-family: 'Montserrat', sans-serif;
     color: #2B2C34;
@@ -42,6 +42,7 @@ body {
  
 
 .App{
+  margin: 40px 60px 160px 60px;
   display: flex;
   flex-direction: column;
   gap: 160px;
