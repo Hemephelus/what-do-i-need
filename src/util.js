@@ -45,10 +45,10 @@ const yourDetailsDropDown = {
     labeName: "Select Class Levels",
     placeholderName: "Enter Class Levels",
     listItems: [
-      { name: "First Class", CGPA: 4.495},
-      { name: "Second Class Upper", CGPA: 3.495 },
-      { name: "Second Class Lower", CGPA: 2.495 },
-      { name: "Third Class", CGPA: 0.0 },
+      { name: "First Class", GPA: 4.495},
+      { name: "Second Class Upper", GPA: 3.495 },
+      { name: "Second Class Lower", GPA: 2.495 },
+      { name: "Third Class", GPA: 0.0 },
     ],
   },
 
@@ -59,10 +59,37 @@ const yourDetailsDropDown = {
     DurationOfCourse: "",
 },
 
+
 GpaData: {
 
 }
 
+}
+
+export function generateGPATableData(durationNumber){
+  let gpaTable = [];
+  for (let i = 1; i <= durationNumber; i++) {
+    gpaTable.push({
+      id: i,
+      Year: Math.ceil(i / 2),
+      Semester: ((i + 1) % 2) + 1,
+      GPA: 0.0,
+      Class: "-",
+      CGPA: 0.0,
+      Change: "-",
+    });
+  }
+
+  return gpaTable
+}
+
+export function getClass(gpa){
+  const x = yourDetailsDropDown.ClassLevels.listItems
+   for(let i = 0;i < x.length; i++){
+    if(gpa >= x[i].GPA){
+      return x[i].name
+    }
+   }
 }
 
 export default yourDetailsDropDown

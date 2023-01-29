@@ -18,7 +18,7 @@ const Summary = () => {
     </button>
     </div>
     <div className='grid grid-rows-3 gap-[40px] m-[40px]'>
-      <div className='bg-[#fffffe] rounded-lg shadow-xl'>
+      <div className='bg-[#fffffe] rounded-lg shadow-xl pb-4'>
         <h1 className="py-[16px] px-[32px] font-semibold border-solid border-b-2">OVERVIEW</h1>
         <TableComp duration={yourDetails} />
       </div>
