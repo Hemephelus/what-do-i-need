@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import SideBar from '../components/SideBar'
 import Summary from './Summary'
-import StatsBar from '../components/StatsBar'
+// import StatsBar from '../components/StatsBar'
 import Comprehensive from './Comprehensive'
 import BreakDown from './BreakDown'
 import YourProfile from './YourProfile'
@@ -10,10 +10,10 @@ import PrintResult from './PrintResult'
 
 const Dashboard = () => {
 
-    console.log( JSON.parse(localStorage.getItem('CalcDetails')) )
+    // console.log( JSON.parse(localStorage.getItem('CalcDetails')) )
   return (
     <div>
-         <div className="main-summary-app relative bg-[#D1D1E9] grid grid-cols-[auto_minmax(auto,_1fr)_400px] w-full">
+         <div className="main-summary-app relative bg-[#D1D1E9] grid grid-cols-[minmax(250px,_auto)_minmax(auto,_1fr)] w-full">
         {/* Components
               SideBar
               main-section
@@ -32,7 +32,7 @@ const Dashboard = () => {
       </Routes>
       {/* <Summary/> */}
 
-              <StatsBar/>
+              {/* <StatsBar/> */}
               
               <div></div>
       </div>

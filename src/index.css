@@ -8,3 +8,11 @@
     box-sizing: border-box;
     /* font-family: 'Montserrat', sans-serif; */
   }
+
+  @layer components {
+
+    .sidebar-icons{
+      @apply flex gap-4 w-full  text-slate-500 hover:text-slate-700 hover:bg-slate-200;
+    }
+
+  }

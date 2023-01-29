@@ -1,73 +1,62 @@
-import React from 'react'
-import { TfiShortcode } from "react-icons/tfi";
-import { BsMenuButtonWide,BsPrinter } from "react-icons/bs";
+import React from "react";
+import { BsMenuButtonWide, BsPrinter } from "react-icons/bs";
 import { BiDetail, BiArrowBack } from "react-icons/bi";
+import { MdOutlineSummarize } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   return (
-    <div>
-        <div className='sticky  top-0 h-screen bg-[#fffffe] w-[100px] border-solid border-gray-400  sm:block border-r-2 '>
-        
-        
-        <div>
-        <Link to="/your-details">
-            <button className='bg-red-400'>
-              <BiArrowBack size={32} />
+    <div className="sticky top-0 flex flex-col  gap-8 h-screen bg-[#fffffe] py-8 border-solid border-gray-400  border-r-[1px] sm:inline-flex ">
+      {/* <div className='flex gap-8 text-red-300 h-screen bg-[#fffffe] py-8 border-solid border-gray-400  sm:block border-r-2 '> */}
+      <div>
+        <Link to="/">
+          <button className="flex gap-4 items-center text-2xl font-semibold text-slate-700">
+            <BiArrowBack size={24} />
+            <h1>WDIN</h1>
+          </button>
+        </Link>
+      </div>
+      <div className="flex gap-4 flex-col">
+        <Link to="/dashboard/summary-calculator">
+          <button className="sidebar-icons">
+            <MdOutlineSummarize size={24} />
+            <p>Summary</p>
+          </button>
+        </Link>
 
-            </button>
-            </Link>
-        </div>
-      
-          
-            <div className='flex gap-4 flex-col items-center'>
+        <Link to="/dashboard/comprehensive-calculator">
+          <button className="sidebar-icons">
+            <BsMenuButtonWide size={24} />
 
-          
-            <Link to="/dashboard/summary-calculator">
-            <button>
-              <TfiShortcode size={32}/>
+            <p>Comprehensive</p>
+          </button>
+        </Link>
 
-            </button>
-            </Link>
+        <Link to="/dashboard/break-down">
+          <button className="sidebar-icons">
+            <BiDetail size={24} />
+            <p>Break Down</p>
+          </button>
+        </Link>
 
-            <Link to="/dashboard/comprehensive-calculator">
-            <button>
-              <BsMenuButtonWide size={32}/>
+        <Link to="/dashboard/print-result">
+          <button className="sidebar-icons">
+            <BsPrinter size={24} />
+            <p>Print Result</p>
+          </button>
+        </Link>
 
-            </button>
-            </Link>
-
-            <Link to="/dashboard/break-down">
-            <button>
-              <BiDetail size={32}/>
-
-            </button>
-            </Link>
-
-            <Link to="/dashboard/print-result">
-            <button>
-              <BsPrinter size={32}/>
-
-            </button>
-            </Link>
-
-            <Link to="/dashboard/your-profile">
-            <button>
-              <CgProfile size={32}/>
-
-            </button>
-            </Link>
-          
-            </div>
-        </div>
-
-        
-
-      
-
+        <Link to="/dashboard/your-profile">
+          <button className="sidebar-icons">
+            <CgProfile size={24} />
+            <p>Your Profile</p>
+          </button>
+        </Link>
+      </div>
+      {/* </div> */}
     </div>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;
