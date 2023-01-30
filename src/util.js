@@ -60,9 +60,7 @@ const yourDetailsDropDown = {
 },
 
 
-GpaData: {
-
-}
+GpaData: []
 
 }
 
@@ -91,5 +89,40 @@ export function getClass(gpa){
     }
    }
 }
+
+export function getPercentageChange(prevIndex,currentIndex,arr){
+      if(prevIndex < 0)return "-"
+      const prev = arr[prevIndex]
+      const current = arr[currentIndex]
+      if(prev === 0|| prev === "")return "-"
+      if(current === 0|| current === "")return "-"
+      return `${(((current-prev)/prev)*100).toFixed(2)}%`
+}
+
+export function getCalculatedCGPA(cgpaList = [],index){
+  cgpaList = cgpaList.slice(
+    0,
+    index + 1 === cgpaList.length
+      ? cgpaList.length
+      : 1 + index - cgpaList.length
+  )
+
+  let arr  = cgpaList.slice(index)
+
+  let sum = 0
+
+
+for (let i = 0; i < arr.length; i += 1) {
+sum += arr[i]
+}
+
+if(sum === 0)return "-"
+
+  const total = cgpaList.reduce((acc, current) => {
+    return acc + current;
+  }, 0);
+
+  return (total / cgpaList.length).toFixed(2);
+};
 
 export default yourDetailsDropDown
