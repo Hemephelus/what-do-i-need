@@ -18,7 +18,7 @@ const Selector = ({DropDownList,callback}) => {
     <div className="font-regular">
       <div
         onClick={() => setOpen(!open)}
-        className={`bg-white min-w-[200px] w-full h-[35px] p-2 flex items-center justify-between rounded overflow-hidden border hover:border-slate-500 ${
+        className={`bg-white min-w-[200px] w-full h-[35px] p-2 flex cursor-pointer items-center justify-between rounded overflow-hidden border hover:border-slate-500 ${
           !selected && "text-gray-700"
         }`}
       >
@@ -47,7 +47,7 @@ const Selector = ({DropDownList,callback}) => {
         {listItems?.map((listItem) => (
           <li
             key={listItem?.name}
-            className={`p-2 text-sm hover:bg-sky-600 hover:text-white
+            className={`p-2 text-sm hover:bg-sky-600  cursor-pointer hover:text-white
             ${
               listItem?.name?.toLowerCase() === selected?.toLowerCase() &&
               "bg-sky-600 text-white"

@@ -31,7 +31,7 @@ const TableComp = () => {
 
   return (
     <div className="px-[40px] py-[20px] flex flex-col gap-4">
-      <div className="py-[8px] px-[32px] border-solid border-b-2 border-slate-400 font-semibold flex">
+      <div className="py-[8px] px-[32px] border-solid border-b-2 border-slate-400 font-semibold flex gap-4">
         <div className="flex-1">#</div>
         <div className="flex-1">Year</div>
         <div className="flex-1">Semester</div>
@@ -45,7 +45,7 @@ const TableComp = () => {
         {gpasList?.map((gpa, index) => (
           <div
             key={gpa?.id}
-            className="py-[8px] px-[32px] rounded bg-slate-200 flex font-medium items-center"
+            className="py-[8px] px-[32px] rounded bg-slate-200 flex gap-4 font-medium items-center"
           >
             <div className="flex-1">{gpa?.id}</div>
             <div className="flex-1">{gpa?.Year}</div>

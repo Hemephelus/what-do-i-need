@@ -59,6 +59,12 @@ const yourDetailsDropDown = {
     DurationOfCourse: "",
 },
 
+MinimumGPAPerClass:{
+  "First Class": 4.495,
+  "Second Class Upper": 3.495,
+  "Second Class Lower": 2.495,
+  "Third Class": 0.0,
+},
 
 GpaData: []
 
@@ -107,8 +113,8 @@ export function getCalculatedCGPA(cgpaList = [],index){
       : 1 + index - cgpaList.length
   )
 
-  let arr  = cgpaList.slice(index)
 
+  let arr  = cgpaList.slice(index)
   let sum = 0
 
 
@@ -125,4 +131,44 @@ if(sum === 0)return "-"
   return (total / cgpaList.length).toFixed(2);
 };
 
+export function calculateMinimumGPAForaClass(desiredClass,duration = "4 years",allGPAs){
+  let estimatedGPA = 0
+  let minGPA = yourDetailsDropDown.MinimumGPAPerClass[desiredClass]
+  duration = duration.split(' ')[0]*2
+  const totalMinGPAPoints = minGPA * duration
+  let semestersDone = 0
+  let totalGPAPoints = 0
+
+
+  for (let i = 0; i < allGPAs.length; i += 1) {
+    totalGPAPoints += +allGPAs[i].GPA
+    if(+allGPAs[i].GPA !== 0){
+      semestersDone = i+1
+    }
+  }
+  
+  const remainingGPAPoints = totalMinGPAPoints - totalGPAPoints
+  const semestersLeft = duration - semestersDone
+  estimatedGPA = remainingGPAPoints/semestersLeft
+
+  if(isNaN(estimatedGPA))return "0.00"
+  // if(!isFinite(estimatedGPA))return "0.00"
+  return estimatedGPA.toFixed(2)
+}
+
+export function getCurrentCGPA(gpaTable =[]){
+    let gpaNumber = []
+    let index = 0
+
+    for(let i = 0; i < gpaTable.length; i++){
+      gpaNumber.push(+gpaTable[i].GPA)
+      if(+gpaTable[i].GPA !== 0){
+        index = i
+      }
+    }
+    let currentGPA = getCalculatedCGPA(gpaNumber,index)
+    if(currentGPA === "-")return "0.00"
+
+    return currentGPA
+}
 export default yourDetailsDropDown
