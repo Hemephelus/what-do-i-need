@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import TableComp from "../components/TableComp";
+import Selector from "../components/Selector";
+import LineChart from "../components/GpaChart";
 import {
   getClass,
   getPercentageChange,
   getCalculatedCGPA,
   getCurrentCGPA,
   calculateMinimumGPAForaClass,
+  chartData,
 } from "../util";
-import Selector from "../components/Selector";
+// import { Chart } from "chart.js";
 
 const Summary = () => {
   const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
@@ -15,6 +18,7 @@ const Summary = () => {
   const [GpaData, SetGpaData] = useState(yourDetails.GpaData);
   const [desiredClass, SetDesiredClass] = useState("Third Class");
   const duration = yourDetails.UserData.DurationOfCourse;
+
 
   const onClickEvaluate = (e) => {
     const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
@@ -179,7 +183,7 @@ const Summary = () => {
           <div className="border-b-2 border-solid py-[16px] px-[32px]">
             <h1 className="font-semibold">GPA VS CGPA OVERTIME</h1>
           </div>
-          {/* GRAPH 1 */}
+          <LineChart chartData={chartData} />
         </div>
         <div className="bg-[#fffffe] rounded-lg shadow-xl">
           <div className="border-b-2 border-solid py-[16px] px-[32px]">
