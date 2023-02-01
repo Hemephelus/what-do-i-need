@@ -9,8 +9,6 @@ import YourProfile from './YourProfile'
 import PrintResult from './PrintResult'
 
 const Dashboard = () => {
-
-    // console.log( JSON.parse(localStorage.getItem('CalcDetails')) )
   return (
     <div>
          <div className="main-summary-app relative bg-[#D1D1E9] grid grid-cols-[minmax(250px,_auto)_minmax(auto,_1fr)] w-full">

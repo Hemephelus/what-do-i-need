@@ -38,7 +38,7 @@ const TableComp = () => {
         <div className="flex-1">GPA</div>
         <div className="flex-1">Class</div>
         <div className="flex-1">CGPA</div>
-        <div className="flex-1">GPA (%Change)</div>
+        <div className="flex-1">CGPA (%Change)</div>
       </div>
 
       <div className="flex flex-col gap-2">
@@ -63,8 +63,7 @@ const TableComp = () => {
             <div className="flex-1">
               {getCalculatedCGPA(gpasList.map((g) => +g.GPA),index)}
             </div>
-            <div className="flex-1">{getPercentageChange(index-1,index,gpasList
-                  .map((g) => +g.GPA))}</div>
+            <div className="flex-1">{getPercentageChange(index-1,index,gpasList)}</div>
           </div>
         ))}
       </div>

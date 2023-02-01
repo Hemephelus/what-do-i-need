@@ -9,8 +9,9 @@ import {
   getCalculatedCGPA,
   getCurrentCGPA,
   calculateMinimumGPAForaClass,
-  chartData,
   generateInitialLineChart,
+  generateGPAChart,
+  generateCGPAChangeChart,
 } from "../util";
 
 const Summary = () => {
@@ -19,22 +20,21 @@ const Summary = () => {
   const [GpaData, SetGpaData] = useState(yourDetails.GpaData);
   const [desiredClass, SetDesiredClass] = useState("First Class");
   const [GPAAxisLabels, SetGPAAxisLabels] = useState({ x: "", y: "" });
-  const [GPAChangeAxisLabels, SetGPAChangeAxisLabels] = useState({
+  const [CGPAChangeAxisLabels, SetCGPAChangeAxisLabels] = useState({
     x: "",
     y: "",
   });
   const [GPAChartData, SetGPAChartData] = useState(generateInitialLineChart);
-  const [GPAChangeChartData, SetGPAChangeChartData] = useState(
+  const [GPAChangeChartData, SetCGPAChangeChartData] = useState(
     generateInitialLineChart
   );
 
-  console.log(GPAChartData);
   const duration = yourDetails.UserData.DurationOfCourse;
-
+  
   const onClickEvaluate = (e) => {
     const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
     const gpaDetails = yourDetails.GpaData;
-
+    
     const newGpaData = gpaDetails.map((gpa, index) => {
       return {
         ...gpa,
@@ -46,73 +46,40 @@ const Summary = () => {
         Change: getPercentageChange(
           index - 1,
           index,
-          gpaDetails.map((g) => +g.GPA)
+          gpaDetails
         ),
       };
     });
     SetGpaData(newGpaData);
     yourDetails.GpaData = newGpaData;
     localStorage.setItem("CalcDetails", JSON.stringify(yourDetails));
+
+    
+
+    let minimumGPA = calculateMinimumGPAForaClass(
+      "First Class",
+      duration,
+      newGpaData
+    )
+    SetGPAChartData(generateGPAChart(newGpaData,minimumGPA));
+    SetCGPAChangeChartData(generateCGPAChangeChart(newGpaData,minimumGPA));
+    SetGPAAxisLabels({ x: "Semesters", y: "Points" });
+    SetCGPAChangeAxisLabels({ x: "Semesters", y: "Percentage%" });
   };
 
   const getDropDownValue = (selectedValue, selectionName) => {
     SetDesiredClass(selectedValue);
-    SetGPAChartData({
-      labels: chartData.map((data) => data.year),
-      datasets: [
-        {
-          label: "GPA",
-          data: [4.9, 4.4],
-          backgroundColor: "rgba(98, 70, 234, 0.5)",
-          borderColor: "rgba(98, 70, 234, 0.8)",
-          fill: true,
-        },
-        {
-          label: "Projected GPA",
-          data: [4.9, 4.4, 4.42, 4.42, 4.42, 4.42],
-          backgroundColor: "rgba(98, 70, 234, 0.25)",
-          borderColor: "rgba(98, 70, 234, 0.5)",
-          borderDash: [5, 5],
-        },
-        {
-          label: "CGPA",
-          data: [4.9, 4.65],
-          backgroundColor: "rgba(219, 39, 99, 0.5)",
-          borderColor: "rgba(219, 39, 99, 0.8)",
-          fill: true,
-        },
-        {
-          label: "Projected CGPA",
-          data: [4.9, 4.65, 4.57, 4.54, 4.51, 4.5],
-          backgroundColor: "rgba(219, 39, 99, 0.25)",
-          borderColor: "rgba(219, 39, 99, 0.5)",
-          borderDash: [5, 5],
-        },
-      ],
-    });
-    SetGPAChangeChartData({
-      labels: chartData.map((data) => data.year),
-      datasets: [
-        {
-          label: "GPA Percentage Change",
-          data: [NaN, 100, -10],
-          backgroundColor: "rgba(98, 70, 234, 0.5)",
-          borderColor: "rgba(98, 70, 234, 0.8)",
-        },
-        {
-          label: "Projected GPA Percentage Change",
-          data: [NaN, 100, -10, 0, 0, 0],
-          backgroundColor: "rgba(98, 70, 234, 0.25)",
-          borderColor: "rgba(98, 70, 234, 0.5)",
-          borderDash: [5, 5],
-        },
-      ],
-    });
+    let minimumGPA = calculateMinimumGPAForaClass(
+      selectedValue,
+      duration,
+      GpaData
+    )
+    SetGPAChartData(generateGPAChart(GpaData,minimumGPA));
+    SetCGPAChangeChartData(generateCGPAChangeChart(GpaData,minimumGPA));
     SetGPAAxisLabels({ x: "Semesters", y: "Points" });
-    SetGPAChangeAxisLabels({ x: "Semesters", y: "Percentage%" });
+    SetCGPAChangeAxisLabels({ x: "Semesters", y: "Percentage%" });
   };
 
-  // console.log(calculateMinimumGPAForaClass(desiredClass,duration,GpaData))
 
   if (Object.values(yourDetails.UserData).every((val) => val === "")) {
     return (
@@ -271,18 +238,20 @@ const Summary = () => {
           <div className="border-b-2 border-solid py-[16px] px-[32px]">
             <h1 className="font-semibold">GPA VS CGPA OVERTIME</h1>
           </div>
-          <div className="p-8">
+          <div className="p-16">
             <LineChart LchartData={GPAChartData} axisLab={GPAAxisLabels} />
           </div>
         </div>
         <div className="bg-[#fffffe] rounded-lg shadow-xl">
           <div className="border-b-2 border-solid py-[16px] px-[32px]">
-            <h1 className="font-semibold">PERCENTAGE CHANGE OVERTIME</h1>
+            <h1 className="font-semibold">CGPA PERCENTAGE CHANGE OVERTIME</h1>
           </div>
-          <LineChart
+       <div className="p-16">
+       <LineChart
             LchartData={GPAChangeChartData}
-            axisLab={GPAChangeAxisLabels}
+            axisLab={CGPAChangeAxisLabels}
           />
+       </div>
         </div>
       </div>
     </div>
