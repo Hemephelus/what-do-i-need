@@ -152,7 +152,7 @@ export function calculateMinimumGPAForaClass(desiredClass,duration = "4 years",a
   estimatedGPA = remainingGPAPoints/semestersLeft
 
   if(isNaN(estimatedGPA))return "0.00"
-  // if(!isFinite(estimatedGPA))return "0.00"
+  if(!isFinite(estimatedGPA))return "0.00"
   return estimatedGPA.toFixed(2)
 }
 
@@ -202,7 +202,24 @@ export const chartData = [
     year: 2020,
     userGain: 4300,
     userLost: 234
+  },
+  {
+    id: 6,
+    year: 2021,
+    userGain: 4300,
+    userLost: 234
   }
 ];
+
+export const generateInitialLineChart = {
+  labels: [],
+  datasets: [
+    {
+      label: "",
+      data: [],
+    },
+
+  ],
+}
 
 export default yourDetailsDropDown

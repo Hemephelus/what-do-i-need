@@ -38,7 +38,7 @@ const TableComp = () => {
         <div className="flex-1">GPA</div>
         <div className="flex-1">Class</div>
         <div className="flex-1">CGPA</div>
-        <div className="flex-1">%Change</div>
+        <div className="flex-1">GPA (%Change)</div>
       </div>
 
       <div className="flex flex-col gap-2">
