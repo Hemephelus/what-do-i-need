@@ -2,7 +2,7 @@ import React from 'react'
 
 const Comprehensive = () => {
   return (
-    <div>Comprehensive</div>
+    <div >Comprehensive</div>
   )
 }
 

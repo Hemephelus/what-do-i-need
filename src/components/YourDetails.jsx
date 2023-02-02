@@ -35,7 +35,7 @@ const YourDetails = () => {
 
   return (
     <div className="your-details flex justify-center">
-      <div className="details-card w-[600px] bg-slate-200 rounded-3xl flex flex-col justify-center items-center gap-8 p-16 shadow-2xl">
+      <div className="details-card w-[600px] bg-slate-200 rounded-3xl flex flex-col justify-center items-center gap-8 p-8 sm:p-16 shadow-2xl">
         <h1 className="text-2xl font-semibold text-[#6246EA]">Your Details</h1>
         <div className="details-input flex flex-col gap-[32px] w-full">
           <div className="detail-input flex flex-col gap-[8px] w-full">

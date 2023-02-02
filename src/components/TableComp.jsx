@@ -31,7 +31,7 @@ const TableComp = () => {
 
   return (
     <div className="px-[40px] py-[20px] flex flex-col gap-4">
-      <div className="py-[8px] px-[32px] border-solid border-b-2 border-slate-400 font-semibold flex gap-4">
+      <div className="py-[8px] px-[32px] border-solid border-b-2 border-slate-400 font-semibold sm:flex gap-4 text-[12px] sm:text-[16px] hidden">
         <div className="flex-1">#</div>
         <div className="flex-1">Year</div>
         <div className="flex-1">Semester</div>
@@ -41,11 +41,11 @@ const TableComp = () => {
         <div className="flex-1">CGPA (%Change)</div>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="sm:flex flex-col gap-2 hidden">
         {gpasList?.map((gpa, index) => (
           <div
             key={gpa?.id}
-            className="py-[8px] px-[32px] rounded bg-slate-200 flex gap-4 font-medium items-center"
+            className="py-[8px] px-[32px] rounded bg-slate-200 flex gap-4 font-medium items-center text-[12px] sm:text-[16px]"
           >
             <div className="flex-1">{gpa?.id}</div>
             <div className="flex-1">{gpa?.Year}</div>

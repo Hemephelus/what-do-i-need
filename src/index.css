@@ -12,7 +12,11 @@
   @layer components {
 
     .sidebar-icons{
-      @apply flex gap-4 w-full  text-slate-500 hover:text-slate-700 hover:bg-slate-200;
+      @apply flex gap-4 w-full text-slate-500 hover:text-slate-700 hover:bg-slate-200;
+    }
+
+    .sidebar-icons > p {
+      @apply  hidden lg:inline-flex;
     }
 
   }

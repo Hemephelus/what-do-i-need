@@ -6,7 +6,7 @@ const Header = () => {
     
     <div>
     
-        <div className="flex justify-between App-header">
+        <div className="flex justify-between items-center App-header">
             <Link to="/">
         <h1 className="text-[16px] font-semibold App-name">WDIN</h1>
             </Link>

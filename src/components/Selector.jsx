@@ -15,7 +15,7 @@ const Selector = ({DropDownList,callback}) => {
     
 
   return (
-    <div className="font-regular">
+    <div className="text-[12px] sm:text-[16px] font-regular">
       <div
         onClick={() => setOpen(!open)}
         className={`bg-white min-w-[200px] w-full h-[35px] p-2 flex cursor-pointer items-center justify-between rounded overflow-hidden border hover:border-slate-500 ${

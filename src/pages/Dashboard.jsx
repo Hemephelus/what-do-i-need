@@ -11,7 +11,7 @@ import PrintResult from './PrintResult'
 const Dashboard = () => {
   return (
     <div>
-         <div className="main-summary-app relative bg-[#D1D1E9] grid grid-cols-[minmax(250px,_auto)_minmax(auto,_1fr)] w-full">
+         <div className="main-summary-app relative bg-[#D1D1E9] w-full sm:grid sm:grid-cols-[auto_minmax(auto,_1fr)] ">
         {/* Components
               SideBar
               main-section

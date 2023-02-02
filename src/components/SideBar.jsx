@@ -1,19 +1,20 @@
 import React from "react";
 import { BsMenuButtonWide, BsPrinter } from "react-icons/bs";
-import { BiDetail, BiArrowBack } from "react-icons/bi";
+import { BiDetail } from "react-icons/bi";
 import { MdOutlineSummarize } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
+import { AiOutlineHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
   return (
-    <div className="sticky top-0 flex flex-col  gap-8 h-screen bg-[#fffffe] py-8 border-solid border-gray-400  border-r-[1px] sm:inline-flex ">
+    <div className="fixed sm:sticky top-0 left-0 hidden sm:flex flex-col  gap-8 h-screen bg-[#fffffe] py-8 border-solid border-gray-400  border-r-[1px] z-10">
       {/* <div className='flex gap-8 text-red-300 h-screen bg-[#fffffe] py-8 border-solid border-gray-400  sm:block border-r-2 '> */}
       <div>
         <Link to="/">
           <button className="flex gap-4 items-center text-2xl font-semibold text-slate-700">
-            <BiArrowBack size={24} />
-            <h1>WDIN</h1>
+            <AiOutlineHome size={24} />
+            <h1 className="hidden lg:inline-flex">Home</h1>
           </button>
         </Link>
       </div>
