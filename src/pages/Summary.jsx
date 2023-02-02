@@ -57,7 +57,7 @@ const Summary = () => {
     
 
     let minimumGPA = calculateMinimumGPAForaClass(
-      "First Class",
+      desiredClass,
       duration,
       newGpaData
     )
@@ -106,7 +106,7 @@ const Summary = () => {
       <div className="sticky  top-0 bg-[#fffffe]  border-solid border-b-[1px] border-gray-400 flex justify-between items-center py-4 px-[40px] ">
         <div>
           <h1 className="font-semibold text-[24px]">Summary</h1>
-          <p className="text-[12px] font-regular">Welcome, {userName}!</p>
+          <p className="text-[16px] font-medium">Welcome, {userName}!</p>
         </div>
 
         <button
