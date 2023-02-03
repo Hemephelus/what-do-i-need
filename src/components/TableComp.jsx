@@ -30,7 +30,7 @@ const TableComp = () => {
   
 
   return (
-    <div className="px-[40px] py-[20px] flex flex-col gap-4">
+    <div className="p-4 sm:px-[40px] sm:py-[20px] flex flex-col  gap-4">
       <div className="py-[8px] px-[32px] border-solid border-b-2 border-slate-400 font-semibold sm:flex gap-4 text-[12px] sm:text-[16px] hidden">
         <div className="flex-1">#</div>
         <div className="flex-1">Year</div>
@@ -64,6 +64,42 @@ const TableComp = () => {
               {getCalculatedCGPA(gpasList.map((g) => +g.GPA),index)}
             </div>
             <div className="flex-1">{getPercentageChange(index-1,index,gpasList)}</div>
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col gap-4 sm:gap-2 sm:hidden">
+        {gpasList?.map((gpa, index) => (
+          <div
+            key={gpa?.id}
+            className="p-4 rounded bg-slate-200 flex flex-col gap-4 font-medium shadow-md text-[12px] sm:text-[16px] "
+          >
+            <div className="flex  gap-4">
+         
+            <span className="">#{gpa?.id}</span>
+            <span className="">Year {gpa?.Year}</span>
+            <span className="">Semester {gpa?.Semester}</span>
+           
+            </div>
+            <div className="h-[1px] bg-slate-400"></div>
+            <div className="flex gap-8 justify-between items-center">
+              
+            <div className="">
+              GPA: <input
+                type="text"
+                value={gpa.GPA}
+                onChange={(e) => onChangeGPA(e, gpa.id)}
+                name={gpa.id - 1}
+                className="w-[48px] sm:w-16 bg-transparent outline-none rounded focus:bg-slate-100 focus:shadow-lg border-solid border-2 border-slate-400 px-2 font-medium "
+              />
+            </div>
+            <div className="">
+              CGPA: {getCalculatedCGPA(gpasList.map((g) => +g.GPA),index)}
+            </div>
+            <div className="">%CGPA: {getPercentageChange(index-1,index,gpasList)}</div>
+            </div>
+            <div className="h-[1px] bg-slate-400"></div>
+            <div className="">{getClass(gpa.GPA)} Student</div>
+           
           </div>
         ))}
       </div>
