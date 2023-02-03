@@ -12,11 +12,21 @@
   @layer components {
 
     .sidebar-icons{
-      @apply flex gap-4 w-full text-slate-500 hover:text-slate-700 hover:bg-slate-200;
-    }
-
-    .sidebar-icons > p {
-      @apply  hidden lg:inline-flex;
+      @apply flex gap-4 w-full text-slate-500 pr-16 pl-8 hover:text-slate-700 hover:bg-slate-200;
     }
 
   }
+
+  @keyframes bounce {
+    0%, 100% {
+        transform: translateX(-2%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+}
+.hover\:animate-slide:hover {
+    animation: bounce 1s infinite;
+}
