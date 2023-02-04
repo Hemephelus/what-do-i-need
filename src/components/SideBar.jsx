@@ -32,16 +32,16 @@ const SideBar = () => {
           <TbLayoutSidebarRightExpand size={32}/>
         </button>
         </div>
-          <div className="flex gap-4 flex-col">
+          <div className="flex gap-4 flex-col" >
             <Link to="/dashboard/summary-calculator">
-              <button className="sidebar-icons">
+              <button className="sidebar-icons" onClick={() => setIsOpen(!isOpen)}>
                 <MdOutlineSummarize size={24} />
                 <p>Summary</p>
               </button>
             </Link>
 
             <Link to="/dashboard/comprehensive-calculator">
-              <button className="sidebar-icons">
+              <button className="sidebar-icons" onClick={() => setIsOpen(!isOpen)}>
                 <BsMenuButtonWide size={24} />
 
                 <p>Comprehensive</p>
@@ -49,21 +49,21 @@ const SideBar = () => {
             </Link>
 
             <Link to="/dashboard/break-down">
-              <button className="sidebar-icons">
+              <button className="sidebar-icons" onClick={() => setIsOpen(!isOpen)}>
                 <BiDetail size={24} />
                 <p>Break Down</p>
               </button>
             </Link>
 
             <Link to="/dashboard/print-result">
-              <button className="sidebar-icons">
+              <button className="sidebar-icons" onClick={() => setIsOpen(!isOpen)}>
                 <BsPrinter size={24} />
                 <p>Print Result</p>
               </button>
             </Link>
 
             <Link to="/dashboard/your-profile">
-              <button className="sidebar-icons">
+              <button className="sidebar-icons" onClick={() => setIsOpen(!isOpen)}>
                 <CgProfile size={24} />
                 <p>Your Profile</p>
               </button>

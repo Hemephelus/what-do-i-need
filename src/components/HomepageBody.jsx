@@ -47,7 +47,7 @@ const HomepageBody = () => {
 
         <div className="flex flex-col gap-[40px] items-center feature-section">
           <div className="flex flex-col gap-[8px] items-center feature-headline">
-            <h1 className="text-[20px] font-bold feature-title">Features</h1>
+            <h1 className="text-[20px] font-bold feature-title" id='Features'>Features</h1>
             <div className="w-[50px] h-[5px] bg-[#6246EA] feature-line"></div>
           </div>
           <div className="flex  flex-col gap-[40px] features">
@@ -61,7 +61,7 @@ const HomepageBody = () => {
               </figure>
               <h1>Summary</h1>
               <p>
-                Quickly determine what your would need to be on a first class.
+                Quickly determine what you would need to be on a first class.
               </p>
             </div>
 
