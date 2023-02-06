@@ -6,10 +6,8 @@
 }
 
 body {
-  
-  background: linear-gradient(to bottom, #FFFFFE, #6246EA);
+  @apply bg-mode-bg-light;
   font-family: 'Montserrat', sans-serif;
-  color: #2B2C34;
 }
 
 .Hero-sub-headline p{
@@ -26,76 +24,56 @@ button{
   font-weight: 500;
   /* font-size: 12px; */
 }
-
- .feature > h1{
-  @apply text-[#2B2C34] font-semibold font-[16px];
+.feature{
+  @apply flex flex-col items-center gap-4 bg-mode-card-bg-dark p-8 rounded-lg md:min-w-[200px] md:max-w-[500px] md:gap-2 md:items-start md:text-left ;
 }
+.feature > p{
+  @apply  text-mode-card-paragraph-dark font-medium text-[12px] md:text-[16px] max-w-[250px];
+} 
+
+.feature > h1{
+  @apply text-mode-card-headline-dark font-semibold text-[16px] mt-[20px] md:text-[20px];
+}
+.feature > a{
+  @apply text-mode-link text-[12px] font-medium cursor-pointer underline underline-offset-8  flex items-center gap-2 hover:text-mode-card-paragraph-dark hover:scale-95 md:text-[16px];
+}
+
+
+
+
+/* 
 
 
 .feature{
   @apply flex flex-col items-center gap-[16px] max-w-[250px] ;
 }
 
-.feature > p{
-  @apply  text-[#F5F5F5] font-medium font-[12px];
-} 
+ */
 
 
 @media (min-width: 640px) { 
-  body {
+  /* body {
     
-    background: linear-gradient(to bottom, #FFFFFE, #6246EA);
+    @apply bg-mode-bg-light;
     font-family: 'Montserrat', sans-serif;
     color: #2B2C34;
-  }
- 
-
-.App{
-  margin: 40px 60px 160px 60px;
+  } */
+  
+  
+  .App{
+    margin: 60px 0px 160px 0px;
   display: flex;
   flex-direction: column;
   gap: 160px;
  
 }
 
-.App-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* cursor: pointer; */
-}
 
-.header-links{
-  display: flex;
-  gap: 40px;
-} 
 
-.header-link{
-  color: #6246EA;
-  font-weight: 600;
-  font-size: 16px;
-} 
-
-.App-name{
-  font-weight: 700;
-  font-size: 32px;
-}
-
-.App-name:hover{
-  scale: 105%;
-  cursor: pointer;
-}
-
-.header-link:hover{
-  color: #2B2C34;
-  scale: 105%;
-  cursor: pointer;
-}
 
 .App-body{
   display: flex;
   flex-direction: column;
-  gap: 160px;
   align-items: flex-start;
   text-align: left;
 }
@@ -116,11 +94,6 @@ button{
   color: #464646;
 }
 
-.Hero-section{
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
 
 
 
@@ -147,79 +120,9 @@ button:hover{
   align-items: flex-start;
 }
 
-.feature-title{
-  font-weight: bold;
-  font-size: 32px;
-  
-}
 
 
 
-
-.App-footer{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 40px;
-  flex-wrap: wrap;
-  width: fit-content;
-  align-items: flex-start;
-}
-
-.footer-links{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.footer-link{
-  color: #FFFFFE;
-  font-weight: 600;
-  font-size: 16px;
-} 
-
-.footer-link:hover{
-  color: #2B2C34;
-  scale: 105%;
-  cursor: pointer;
-}
-
-.feature-section{
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-.feature-line{
-  height: 10px;
-  width: 100px;
-  background: #6246EA;
-}
-
-.feature-headline{
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-start;
-}
-
-.feature{
-  min-width: 200px;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.feature > p{
-  font-weight: 500;
-  color: #F5F5F5;
-  font-size: 16px;
-  max-width: 250px;
-}
 button{
   border: none;
   padding: 8px 16px;
@@ -228,27 +131,10 @@ button{
   font-weight: 600;
 }
 
-.feature > h1{
-  font-weight: 600;
-  color: #2B2C34;
-  font-size: 20px;
-}
-
-.feature > figure > img{
-  font-weight: 600;
-  color: #2B2C34;
-  font-size: 20px;
-  margin-bottom: 20px;
-  
-}
 
 
-.features{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+
+
 
 
 }

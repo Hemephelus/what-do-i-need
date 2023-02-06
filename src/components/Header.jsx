@@ -4,33 +4,24 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <div className="flex justify-between items-center App-header">
+      <div className="flex justify-between items-center p-8 md:p-20 ">
         <Link to="/">
-          <h1 className="text-[16px] font-semibold App-name">WDIN</h1>
+          <h1 className="text-[16px] font-semibold md:text-[32px] md:font-bold hover:scale-105 cursor-pointer text-mode-link">WDIN</h1>
         </Link>
-        {/* <div>
-          <p className="text-[12px] font-semibold text-[#6246EA] header-link">
-            Add School
-          </p>
-          <p className="text-[12px] font-semibold text-[#6246EA] header-link">
-            Add School
-          </p>
-          <p className="text-[12px] font-semibold text-[#6246EA] header-link">
-            Guide
-          </p>
-          <p className="text-[12px] font-semibold text-[#6246EA]  header-link">
-          </p>
-        </div> */}
-        <div className="flex gap-[16px] header-links">
+        <div className="flex gap-4 md:gap-12">
           <a
             href="#Features"
-            className="font-semibold header-link text-[#6246EA] text-[12px]"
+            className="font-semibold text-mode-headline-light hover:text-mode-link text-[12px] md:text-lg "
             >Features</a>
+          <a
+            href="#Guide"
+            className="font-semibold text-mode-headline-light hover:text-mode-link text-[12px] md:text-lg"
+            >Guide</a>
           <a
             href="https://discord.gg/Stm6uZuf"
             target="_blank"
             rel="noreferrer"
-            className="font-semibold header-link text-[#6246EA] text-[12px]"
+            className="font-semibold text-mode-headline-light hover:text-mode-link text-[12px] md:text-lg"
             >
             Community
           </a>

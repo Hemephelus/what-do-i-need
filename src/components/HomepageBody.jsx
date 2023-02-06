@@ -1,17 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Typical from 'react-typical';
+import {FiArrowRight} from "react-icons/fi";
 import summaryIcon from "../assets/home-page/Summary Icon.png";
 import BreakDownIcon from "../assets/home-page/Break Down.png";
 import ComprehensiveIcon from "../assets/home-page/Comprehensive Icon.png";
 import PrintPreviewIcon from "../assets/home-page/Print Preview.png";
+import HeroImage from "../assets/home-page/Hero_Image.png"
 
 const HomepageBody = () => {
   return (
     <div>
-         <div className="flex flex-col gap-[80px] justify-center items-center text-center App-body">
-        <div className="flex flex-col gap-[40px] sm: Hero-section">
-          <div>
+         <div className="flex flex-col justify-center items-center text-center App-body">
+        <div className="flex flex-col gap-[40px] overflow-hidden md:w-full  md:px-20 md:flex-row md:gap-[30%] md:items-center">
+         <div>
+         <div>
             <h1 className=" text-[32px] font-bold sm: Hero-headline">
               A CGPA Calculator
             </h1>
@@ -43,14 +46,21 @@ const HomepageBody = () => {
               Comprehensive Calculation
             </button> */}
           </div>
+         </div>
+
+
+          <div className='relative overflow-visible bg-contain lol' >
+            {/* <div className="w-[500px] h-[500px] rounded-full absolute -right-[30%] -z-10 bg-mode-link"></div> */}
+            <img src={HeroImage} alt="Hero" className='w-full h-full'/>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-[40px] items-center feature-section">
-          <div className="flex flex-col gap-[8px] items-center feature-headline">
-            <h1 className="text-[20px] font-bold feature-title" id='Features'>Features</h1>
-            <div className="w-[50px] h-[5px] bg-[#6246EA] feature-line"></div>
+        <div className="flex flex-col gap-12 items-center p-8 bg-mode-bg-dark w-full md:px-20 md:items-start   "> 
+          <div className="flex flex-col gap-[8px] items-center md:items-start ">
+            <h1 className="text-[20px] font-bold md:text-[32px] text-mode-headline-dark" id='Features'>Features</h1>
+            <div className="w-[50px] h-[5px] bg-mode-link md:h-[5px] md:w-[100px]"></div>
           </div>
-          <div className="flex  flex-col gap-[40px] features">
+          <div className="flex  flex-col gap-[40px] md:flex-row md:flex-wrap md:justify-between ">
             <div className="feature">
               <figure>
                 <img
@@ -63,6 +73,7 @@ const HomepageBody = () => {
               <p>
                 Quickly determine what you would need to be on a first class.
               </p>
+              <a href='#How to Start'>How to Start <FiArrowRight/></a>
             </div>
 
             <div className="flex flex-col items-center feature">
@@ -77,6 +88,7 @@ const HomepageBody = () => {
               <p>
                 Print your summary or comprehensive results for personal use.
               </p>
+           
             </div>
 
             <div className="flex flex-col items-center feature">
