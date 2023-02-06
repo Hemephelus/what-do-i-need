@@ -25,17 +25,21 @@ button{
   /* font-size: 12px; */
 }
 .feature{
-  @apply flex flex-col items-center gap-4 bg-mode-card-bg-dark p-8 rounded-lg md:min-w-[200px] md:max-w-[500px] md:gap-2 md:items-start md:text-left ;
+  @apply flex flex-col items-center gap-4 bg-mode-card-bg-dark p-8 rounded-lg lg:min-w-[200px] lg:max-w-[500px] lg:gap-2 lg:items-start lg:text-left ;
 }
 .feature > p{
-  @apply  text-mode-card-paragraph-dark font-medium text-[12px] md:text-[16px] max-w-[250px];
+  @apply  text-mode-card-paragraph-dark font-medium text-[12px] lg:text-[16px] max-w-[250px];
 } 
 
 .feature > h1{
-  @apply text-mode-card-headline-dark font-semibold text-[16px] mt-[20px] md:text-[20px];
+  @apply text-mode-card-headline-dark font-semibold text-[16px] mt-[20px] lg:text-[20px];
 }
 .feature > a{
-  @apply text-mode-link text-[12px] font-medium cursor-pointer underline underline-offset-8  flex items-center gap-2 hover:text-mode-card-paragraph-dark hover:scale-95 md:text-[16px];
+  @apply text-mode-link text-[12px] font-medium cursor-pointer underline underline-offset-8  flex items-center gap-2 hover:text-mode-card-paragraph-dark hover:scale-95 lg:text-[16px];
+}
+
+.Hero-sub-headline p{
+  @apply  lg:text-3xl lg:text-mode-paragraph-light lg:font-medium
 }
 
 
@@ -71,28 +75,7 @@ button{
 
 
 
-.App-body{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
 
-.Hero-headline{
-  font-size: 64px;
-  font-weight: bold;
-}
-.Hero-sub-headline{
-  font-size: 32px;
-  font-weight: 400;
-  color: #464646;
-}
-
-.Hero-sub-headline p{
-  font-size: 32px;
-  font-weight: 500;
-  color: #464646;
-}
 
 
 
@@ -102,23 +85,8 @@ button:hover{
    scale: 105%;
 }
 
-.Primary-button{
-  background: #6246EA;
-  color: #FFFFFE;
-  border-radius: 8px;
-}
-.Secondary-button{
-  background: #FFFFFE;
-  color: #6246EA;
-  border-radius: 8px;
-}
 
-.Hero-buttons{
-  display: flex;
-  gap: 32px;
-  flex-direction: row;
-  align-items: flex-start;
-}
+
 
 
 

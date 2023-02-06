@@ -11,15 +11,19 @@ import HeroImage from "../assets/home-page/Hero_Image.png"
 const HomepageBody = () => {
   return (
     <div>
-         <div className="flex flex-col justify-center items-center text-center App-body">
-        <div className="flex flex-col gap-[40px] overflow-hidden md:w-full  md:px-20 md:flex-row md:gap-[30%] md:items-center">
+         <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
+          
+
+
+          {/* HERO SECTION */}
+        <div className="flex flex-col gap-[40px] overflow-hidden lg:w-full  lg:px-20 lg:flex-row lg:justify-between lg:items-center">
+         <div className='flex flex-col gap-4 lg:gap-20 py-16'>
          <div>
-         <div>
-            <h1 className=" text-[32px] font-bold sm: Hero-headline">
+            <h1 className=" text-[32px] font-bold text-mode-headline-light  lg:text-6xl ">
               A CGPA Calculator
             </h1>
             <div>
-              <h3 className="text-[16px] Hero-sub-headline">
+              <h3 className="text-[16px] font-normal text-mode-paragraph-light lg:text-3xl Hero-sub-headline">
                 Find out what you need to be a
                 <Typical
                   steps={[
@@ -36,31 +40,35 @@ const HomepageBody = () => {
               </h3>
             </div>
           </div>
-          <div className="flex flex-col items-center gap-[16px] Hero-buttons">
+          <div className="flex flex-col items-center gap-[16px] lg:flex-row lg:[32px] lg:items-center ">
             <Link to="/your-details">
-            <button className="bg-[#6246EA] text-[#fffffe] rounded-lg px-[64px] py-[16px] font-semibold Primary-button">
+            <button className="bg-mode-button-bg-light text-mode-button-text-light font-semibold px-[32px] py-[8px] lg:rounded-lg lg:px-[64px] lg:py-[16px] ">
               CALCULATE
             </button>
             </Link>
-            {/* <button className="bg-[#FFFFFE] text-[#6246EA] rounded-lg px-[16px] py-[8px] font-semibold Secondary-button">
-              Comprehensive Calculation
-            </button> */}
+            <a className="text-mode-button-bg-light rounded-lg flex gap-2 lg:gap-4 items-center px-[16px] py-[8px] font-semibold hover:text-mode-button-text-light hover:scale-95" href='#How to Start '>
+              How to Start
+              <FiArrowRight/>
+            </a>
           </div>
          </div>
 
 
-          <div className='relative overflow-visible bg-contain lol' >
-            {/* <div className="w-[500px] h-[500px] rounded-full absolute -right-[30%] -z-10 bg-mode-link"></div> */}
-            <img src={HeroImage} alt="Hero" className='w-full h-full'/>
+          <div className='relative overflow-visible h-full lg:mr-16' >
+            <div className="w-[350px] h-[350px] lg:w-[500px] lg:h-[500px] rounded-full absolute lg:right-[5%] -z-10  bg-mode-link"></div>
+            <img src={HeroImage} alt="Hero" className='w-full h-full object-cover'/>
           </div>
         </div>
 
-        <div className="flex flex-col gap-12 items-center p-8 bg-mode-bg-dark w-full md:px-20 md:items-start   "> 
-          <div className="flex flex-col gap-[8px] items-center md:items-start ">
-            <h1 className="text-[20px] font-bold md:text-[32px] text-mode-headline-dark" id='Features'>Features</h1>
-            <div className="w-[50px] h-[5px] bg-mode-link md:h-[5px] md:w-[100px]"></div>
+
+
+    {/* FEATURES */}
+        <div className="flex flex-col gap-12 items-center p-8 bg-mode-bg-dark w-full lg:px-20    "> 
+          <div className="flex flex-col gap-[8px] items-center  ">
+            <h1 className="text-[20px] font-bold lg:text-[32px] text-mode-headline-dark" id='Features'>Features</h1>
+            <div className="w-[50px] h-[5px] bg-mode-link lg:h-[5px] lg:w-[100px]"></div>
           </div>
-          <div className="flex  flex-col gap-[40px] md:flex-row md:flex-wrap md:justify-between ">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 ">
             <div className="feature">
               <figure>
                 <img
@@ -119,6 +127,11 @@ const HomepageBody = () => {
             </div>
           </div>
         </div>
+
+
+
+        {/* HOW TO START */}
+        <div></div>
       </div>
     </div>
   )
