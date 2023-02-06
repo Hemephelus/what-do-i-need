@@ -11,7 +11,7 @@ import PrintResult from "./PrintResult";
 const Dashboard = () => {
   return (
     <div>
-      <div className="main-summary-app relative bg-[#D1D1E9] w-full lg:grid lg:grid-cols-[auto_minmax(auto,_1fr)] ">
+      <div className="main-summary-app relative bg-[#475d5b4b] w-full lg:grid lg:grid-cols-[auto_minmax(auto,_1fr)] ">
         <SideBar />
 
         <Routes>

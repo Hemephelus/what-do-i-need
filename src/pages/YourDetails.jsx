@@ -34,15 +34,15 @@ const YourDetails = () => {
   }, [userData]);
 
   return (
-    <div className="your-details flex justify-center">
-      <div className="details-card w-[600px] bg-slate-200 rounded-3xl flex flex-col justify-center items-center gap-8 p-8 sm:p-16 shadow-2xl">
-        <h1 className="text-2xl font-semibold text-[#6246EA]">Your Details</h1>
-        <div className="details-input flex flex-col gap-[32px] w-full">
+    <div className=" flex justify-center bg-mode-bg-light p-20">
+      <div className="details-card w-[600px] bg-mode-button-bg-light rounded-3xl flex flex-col justify-center items-center gap-8 p-8 sm:p-16 shadow-xl">
+        <h1 className="text-2xl font-semibold text-mode-headline-light ">Your Details</h1>
+        <div className="details-input flex flex-col gap-[32px] w-full text-mode-headline-light">
           <div className="detail-input flex flex-col gap-[8px] w-full">
             <h3 className="font-medium ">Full Name:</h3>
             <input
               type="text"
-              className="bg-white min-w-[200px] w-full h-[35px] p-2 flex items-center justify-between rounded overflow-hidden outline-none border hover:border-slate-500"
+              className="bg-mode-bg-light min-w-[200px] w-full h-[35px] p-2 flex items-center justify-between rounded overflow-hidden outline-none border  hover:border-mode-paragraph-light"
               value={inputValue}
               onChange={handleInputChange}
             />
@@ -78,14 +78,14 @@ const YourDetails = () => {
         </div>
         {condition ? (
           <Link to="/dashboard">
-            <button type="submit" className="bg-[#6246EA] text-[#FFFFFE] w-64">
+            <button type="submit" className="bg-mode-bg-dark text-mode-bg-light w-64">
               START
             </button>
           </Link>
         ) : (
           <Link to="/your-details">
-            <button type="submit" className="bg-[#FFFFFE] text-[#6246EA] w-64">
-              enter data
+            <button type="submit" className="text-mode-bg-dark bg-mode-bg-light w-64">
+              Enter Data
             </button>
           </Link>
         )}

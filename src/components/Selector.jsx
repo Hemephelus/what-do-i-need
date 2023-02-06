@@ -18,8 +18,8 @@ const Selector = ({DropDownList,callback}) => {
     <div className="text-[12px] sm:text-[16px] font-regular">
       <div
         onClick={() => setOpen(!open)}
-        className={`bg-white min-w-[200px] w-full h-[35px] p-2 flex cursor-pointer items-center justify-between rounded overflow-hidden border hover:border-slate-500 ${
-          !selected && "text-gray-700"
+        className={`bg-mode-bg-light min-w-[200px] w-full h-[35px] p-2 flex cursor-pointer items-center justify-between rounded overflow-hidden border hover:border-slate-500 ${
+          !selected && "text-mode-paragraph-light"
         }`}
       >
         {selected
@@ -30,27 +30,27 @@ const Selector = ({DropDownList,callback}) => {
         <BiChevronDown size={20} className={`${open && "rotate-180"}`} />
       </div>
       <ul
-        className={`bg-white mt-2 overflow-y-auto my-scrollbar ${
+        className={`bg-mode-bg-light mt-2 overflow-y-auto my-scrollbar ${
           open ? "max-h-60" : "max-h-0"
         } `}
       >
-        <div className="flex items-center px-2 sticky top-0 bg-white">
+        <div className="flex items-center px-2 sticky top-0 bg-mode-bg-light">
           <AiOutlineSearch size={18} className="text-gray-700" />
           <input
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value.toLowerCase())}
             placeholder= {placeholderName}
-            className="placeholder:text-gray-700 p-2 outline-none "
+            className="placeholder:text-mode-paragraph-light p-2 outline-none bg-mode-bg-light"
           />
         </div>
         {listItems?.map((listItem) => (
           <li
             key={listItem?.name}
-            className={`p-2 text-sm hover:bg-sky-600  cursor-pointer hover:text-white
+            className={`p-2 text-sm hover:bg-mode-paragraph-light  cursor-pointer hover:text-mode-bg-light
             ${
               listItem?.name?.toLowerCase() === selected?.toLowerCase() &&
-              "bg-sky-600 text-white"
+              "bg-mode-paragraph-light text-mode-bg-light"
             }
             ${
                 listItem?.name?.toLowerCase().startsWith(inputValue)

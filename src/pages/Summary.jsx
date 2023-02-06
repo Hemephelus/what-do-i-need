@@ -76,7 +76,7 @@ const Summary = () => {
 
   if (Object.values(yourDetails.UserData).every((val) => val === "")) {
     return (
-      <div className=" bg-[#fffffe] flex flex-col justify-center items-center h-screen  ">
+      <div className=" bg-mode-bg-light flex flex-col justify-center items-center h-screen text-mode-headline-light  ">
         <div className="max-w-lg text-center flex flex-col gap-4 p-8 sm:gap-16">
           <h1 className="font-semibold text-[16px] sm:text-[32px]">Your data was not found</h1>
           <p className="text-[12px] sm:text-[16px] font-medium">
@@ -85,7 +85,7 @@ const Summary = () => {
           </p>
 
           <Link to="/your-details">
-            <button className="bg-[#6246EA] text-[#fffffe]">
+            <button className="bg-mode-headline-light text-mode-bg-light">
               <p>Re-enter Your Details</p>
             </button>
           </Link>
@@ -95,11 +95,9 @@ const Summary = () => {
   }
 
   return (
-    <div className="relative sm:grid sm:grid-rows-[auto_1fr] text-slate-700 h-full ">
-      <div className="sticky  top-0  bg-[#fffffe]  w-full border-solid border-b-[1px] border-gray-400 flex justify-between items-center py-4 px-4  sm:px-[40px] ">
+    <div className="relative sm:grid sm:grid-rows-[auto_1fr] text-mode-headline-light h-full ">
+      <div className="sticky  top-0  bg-mode-bg-light  w-full border-solid border-b-[1px] border-mode-paragraph-light flex justify-between items-center py-4 px-4  sm:px-[40px] ">
         <div>
-          {/* GiHamburgerMenu */}
-          {/* TbLetterW */}
           <h1 className="font-semibold text-[16px] sm:text-[24px]">Summary</h1>
           <p className="text-[12px] sm:text-[16px] font-medium">Welcome, {userName}!</p>
         </div>
@@ -107,7 +105,7 @@ const Summary = () => {
 
         <button
           onClick={onClickEvaluate}
-          className="bg-[#6246EA] text-[#fffffe]"
+          className="bg-mode-link text-mode-bg-dark "
         >
           Evaluate Result
         </button>
@@ -144,7 +142,7 @@ const Summary = () => {
                 >
                   <div className={`bg-[#6246EA] absolute h-full rounded-full w-[100%]`}>{3+1}</div>{`${((getCurrentCGPA(GpaData)/5)*100).toFixed(0)}%`}
                 </div> */}
-                <div className="font-semibold text-[#6246EA]">
+                <div className="font-semibold text-mode-link">
                   {getClass(getCurrentCGPA(GpaData))}
                 </div>
               </div>
@@ -152,7 +150,7 @@ const Summary = () => {
               <div className="w-full flex flex-col items-center gap-4">
                 <div className="font-medium text-sm sm:text-lg text-center">
                   Minimum GPA to be a{" "}
-                  <span className="text-[#6246EA]">{desiredClass}</span>{" "}
+                  <span className="text-mode-link">{desiredClass}</span>{" "}
                   Student.
                 </div>
                 <div className="font-bold text-xl sm:text-2xl">

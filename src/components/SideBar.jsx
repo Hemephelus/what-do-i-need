@@ -9,14 +9,11 @@ import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log('lol')
-  // onClick={setIsOpen(true)}
   
   return (
     <>
-    {/* {console.log(!isOpen)} */}
       {isOpen ? (
-          <div className="fixed lg:sticky z-10 lg:z-0 lg:top-0  lg:bg-[#fffffe] lg:text-black lg:rounded-none top-[100px] left-0 lg:h-screen lg:border-solid lg:border-gray-400 lg:border-r-[1px] rounded-r-full bg-[#6146eaa9] text-[#fffffe]">
+          <div className="fixed lg:sticky z-10 lg:z-0 lg:top-0  lg:bg-mode-bg-light lg:text-mode-headline-light lg:rounded-none top-[100px] left-0 lg:h-screen lg:border-solid lg:border-mode-paragraph-light lg:border-r-[1px] rounded-r-full bg-[#00473ea9] text-mode-bg-light">
                    <button className="h-full " onClick={() => setIsOpen(!isOpen)}>
           <TbLayoutSidebarLeftExpand size={32}/>
         </button>
@@ -24,10 +21,10 @@ const SideBar = () => {
        
       ) : (
         
-        <div className="  fixed lg:sticky top-0 left-0  flex flex-col justify-between  h-screen bg-[#fffffe] py-8 border-solid border-gray-400  border-r-[1px] z-10 shadow-2xl sm:shadow-none">
+        <div className="  fixed lg:sticky top-0 left-0  flex flex-col justify-between  h-screen bg-mode-bg-light py-8 border-solid border-mode-paragraph-light  border-r-[1px] z-10 shadow-2xl sm:shadow-none">
           {/* <div className='flex gap-8 text-red-300 h-screen bg-[#fffffe] py-8 border-solid border-gray-400  sm:block border-r-2 '> */}
         <div className="flex flex-col gap-4">
-        <div className="flex justify-end hover:animate-slide">
+        <div className="flex justify-end hover:animate-slide text-mode-paragraph-light">
         <button  onClick={() => setIsOpen(!isOpen)}>
           <TbLayoutSidebarRightExpand size={32}/>
         </button>
@@ -72,7 +69,7 @@ const SideBar = () => {
         </div>
           <div className="p-8">
             <Link to="/">
-              <button className="flex gap-4  justify-end items-center text-xl font-medium text-slate-700">
+              <button className="flex gap-4  justify-end items-center text-xl font-medium text-mode-headline-light">
                 <AiOutlineHome size={24} />
                 <h1 className="">Home</h1>
               </button>
