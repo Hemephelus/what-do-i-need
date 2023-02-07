@@ -11,10 +11,10 @@ const Footer = () => {
             href="#Features"
             className="font-semibold hover:text-mode-link text-[12px] md:text-lg"
             >Features</a>
-             <a
+             {/* <a
             href="#Guide"
             className="font-semibold hover:text-mode-link text-[12px] md:text-lg"
-            >Guide</a>
+            >Guide</a> */}
           <a
             href="https://discord.gg/Stm6uZuf"
             target="_blank"
