@@ -66,7 +66,11 @@ const yourDetailsDropDown = {
 };
 
 export function generateGPATableData(durationNumber) {
+  const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
+  if(yourDetails.GpaData.length !== 0)return yourDetails.GpaData
+
   let gpaTable = [];
+
   for (let i = 1; i <= durationNumber; i++) {
     gpaTable.push({
       id: i,
@@ -114,7 +118,6 @@ export function getPercentageChange(prevIndex, currentIndex, arr) {
     );
   } else {
     prev = getCalculatedCGPA(arr, prevIndex);
-    console.log(prev);
     current = getCalculatedCGPA(arr, currentIndex);
   }
 
@@ -296,9 +299,6 @@ export function generateCGPAChangeChart(GpaData = [], minimumGPA) {
       return +data.Change.split("%")[0];
     }
   });
-
-  console.log(ProjectedCGPAChangeLineData);
-  console.log(CGPAChangeLineData);
 
   return {
     labels: GpaData.map((data) => data.id),

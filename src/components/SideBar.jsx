@@ -6,9 +6,14 @@ import { CgProfile } from "react-icons/cg";
 import { AiOutlineHome } from "react-icons/ai";
 import { TbLayoutSidebarLeftExpand,TbLayoutSidebarRightExpand } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import yourDetailsDropDown from "../util";
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const resetUserDetails = (e) => {
+    localStorage.setItem("CalcDetails", JSON.stringify(yourDetailsDropDown));
+  };
   
   return (
     <>
@@ -69,7 +74,7 @@ const SideBar = () => {
         </div>
           <div className="p-8">
             <Link to="/">
-              <button className="flex gap-4  justify-end items-center text-xl font-medium text-mode-headline-light">
+              <button  onClick={resetUserDetails} className="flex gap-4  justify-end items-center text-xl font-medium text-mode-headline-light">
                 <AiOutlineHome size={24} />
                 <h1 className="">Home</h1>
               </button>

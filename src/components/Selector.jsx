@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 
-
-const Selector = ({DropDownList,callback}) => {
-  const selectionName = DropDownList.name
-    const labeName = DropDownList.labeName
-    const placeholderName = DropDownList.placeholderName
-    const listItems = DropDownList.listItems
+const Selector = ({ DropDownList, callback }) => {
+  const selectionName = DropDownList.name;
+  const labeName = DropDownList.labeName;
+  const placeholderName = DropDownList.placeholderName;
+  const listItems = DropDownList.listItems;
 
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState("");
   const [open, setOpen] = useState(false);
-    
 
   return (
     <div className="text-[12px] sm:text-[16px] font-regular">
@@ -40,7 +38,7 @@ const Selector = ({DropDownList,callback}) => {
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value.toLowerCase())}
-            placeholder= {placeholderName}
+            placeholder={placeholderName}
             className="placeholder:text-mode-paragraph-light p-2 outline-none bg-mode-bg-light"
           />
         </div>
@@ -53,7 +51,7 @@ const Selector = ({DropDownList,callback}) => {
               "bg-mode-paragraph-light text-mode-bg-light"
             }
             ${
-                listItem?.name?.toLowerCase().startsWith(inputValue)
+              listItem?.name?.toLowerCase().startsWith(inputValue)
                 ? "block"
                 : "hidden"
             }`}
@@ -61,10 +59,9 @@ const Selector = ({DropDownList,callback}) => {
               if (listItem?.name?.toLowerCase() !== selected.toLowerCase()) {
                 setSelected(listItem?.name);
                 setOpen(false);
-                callback(listItem?.name,selectionName)
+                callback(listItem?.name, selectionName);
                 setInputValue("");
               }
-
             }}
           >
             {listItem?.name}

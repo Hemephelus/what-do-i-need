@@ -11,18 +11,18 @@ const YourDetails = () => {
   const [condition, setCondition] = useState(false);
   
   const handleInputChange = (event) => {
+    let newInputValue = event.target.value
     setInputValue(event.target.value);
     let updatedUserData = { ...userData };
-    updatedUserData.FullName = inputValue;
+    updatedUserData.FullName = newInputValue;
     setUserData(updatedUserData);
     yourDetailsDropDown["UserData"] = updatedUserData
     localStorage.setItem('CalcDetails', JSON.stringify(yourDetailsDropDown));
   };
-  
+
   const getDropDownValue = (selectedValue, selectionName) => {
     let updatedUserData = { ...userData };
     updatedUserData[selectionName] = selectedValue;
-    updatedUserData.FullName = inputValue;
     setUserData(updatedUserData);
     yourDetailsDropDown["UserData"] = updatedUserData
     localStorage.setItem('CalcDetails', JSON.stringify(yourDetailsDropDown));

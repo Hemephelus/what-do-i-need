@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TableComp from "../components/TableComp";
 import Selector from "../components/Selector";
 import LineChart from "../components/LineChart";
 import { Link } from "react-router-dom";
-import {
+import yourDetailsDropDown,{
   getClass,
   getPercentageChange,
   getCalculatedCGPA,
@@ -11,13 +11,21 @@ import {
   calculateMinimumGPAForaClass,
   generateInitialLineChart,
   generateGPAChart,
+  generateGPATableData,
   generateCGPAChangeChart,
 } from "../util";
 
 const Summary = () => {
   const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
+  let durationSelected = yourDetails.UserData.DurationOfCourse;
+  let durationNumber = durationSelected.split("")[0] * 2;
   const userName = yourDetails.UserData.FullName;
-  const [GpaData, SetGpaData] = useState(yourDetails.GpaData);
+
+
+  const [GpaData, SetGpaData] = useState(generateGPATableData(durationNumber));
+  yourDetails.GpaData = GpaData;
+  localStorage.setItem("CalcDetails", JSON.stringify(yourDetails));
+
   const [desiredClass, SetDesiredClass] = useState("First Class");
   const [GPAAxisLabels, SetGPAAxisLabels] = useState({ x: "", y: "" });
   const [CGPAChangeAxisLabels, SetCGPAChangeAxisLabels] = useState({
@@ -30,11 +38,27 @@ const Summary = () => {
   );
 
   const duration = yourDetails.UserData.DurationOfCourse;
+  const graphGenerator = (GpaData,selectedValue) => {
+    let minimumGPA = calculateMinimumGPAForaClass(
+      selectedValue,
+      duration,
+      GpaData
+      );
+      SetGPAChartData(generateGPAChart(GpaData, minimumGPA));
+      SetCGPAChangeChartData(generateCGPAChangeChart(GpaData, minimumGPA));
+      SetGPAAxisLabels({ x: "Semesters", y: "Points" });
+      SetCGPAChangeAxisLabels({ x: "Semesters", y: "Percentage%" });
+    }
 
-  const onClickEvaluate = (e) => {
+ 
+
+    useEffect(() => {
+      graphGenerator(GpaData,desiredClass)
+    },[]);
+
+  const onClickEvaluate = (e) => {  
     const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
     const gpaDetails = yourDetails.GpaData;
-
     const newGpaData = gpaDetails.map((gpa, index) => {
       return {
         ...gpa,
@@ -50,42 +74,33 @@ const Summary = () => {
     yourDetails.GpaData = newGpaData;
     localStorage.setItem("CalcDetails", JSON.stringify(yourDetails));
 
-    let minimumGPA = calculateMinimumGPAForaClass(
-      desiredClass,
-      duration,
-      newGpaData
-    );
-    SetGPAChartData(generateGPAChart(newGpaData, minimumGPA));
-    SetCGPAChangeChartData(generateCGPAChangeChart(newGpaData, minimumGPA));
-    SetGPAAxisLabels({ x: "Semesters", y: "Points" });
-    SetCGPAChangeAxisLabels({ x: "Semesters", y: "Percentage%" });
+
+    graphGenerator(newGpaData,desiredClass)
   };
 
   const getDropDownValue = (selectedValue, selectionName) => {
     SetDesiredClass(selectedValue);
-    let minimumGPA = calculateMinimumGPAForaClass(
-      selectedValue,
-      duration,
-      GpaData
-    );
-    SetGPAChartData(generateGPAChart(GpaData, minimumGPA));
-    SetCGPAChangeChartData(generateCGPAChangeChart(GpaData, minimumGPA));
-    SetGPAAxisLabels({ x: "Semesters", y: "Points" });
-    SetCGPAChangeAxisLabels({ x: "Semesters", y: "Percentage%" });
+    graphGenerator(GpaData,selectedValue)
+  };
+
+  const resetUserDetails = (e) => {
+    localStorage.setItem("CalcDetails", JSON.stringify(yourDetailsDropDown));
   };
 
   if (Object.values(yourDetails.UserData).every((val) => val === "")) {
     return (
       <div className=" bg-mode-bg-light flex flex-col justify-center items-center h-screen text-mode-headline-light  ">
         <div className="max-w-lg text-center flex flex-col gap-4 p-8 sm:gap-16">
-          <h1 className="font-semibold text-[16px] sm:text-[32px]">Your data was not found</h1>
+          <h1 className="font-semibold text-[16px] sm:text-[32px]">
+            Your data was not found
+          </h1>
           <p className="text-[12px] sm:text-[16px] font-medium">
             WDIN stores all user data on local storage. This mean after your
             session has expired your data is cleared from local storage.
           </p>
 
           <Link to="/your-details">
-            <button className="bg-mode-headline-light text-mode-bg-light">
+            <button  onClick={resetUserDetails} className="bg-mode-headline-light text-mode-bg-light">
               <p>Re-enter Your Details</p>
             </button>
           </Link>
@@ -99,16 +114,17 @@ const Summary = () => {
       <div className="sticky  top-0  bg-mode-bg-light  w-full border-solid border-b-[1px] border-mode-paragraph-light flex justify-between items-center py-4 px-4  sm:px-[40px] ">
         <div>
           <h1 className="font-semibold text-[16px] sm:text-[24px]">Summary</h1>
-          <p className="text-[12px] sm:text-[16px] font-medium">Welcome, {userName}!</p>
+          <p className="text-[12px] sm:text-[16px] font-medium">
+            Welcome, {userName}!
+          </p>
         </div>
         <a href="#Evaluation">
-
-        <button
-          onClick={onClickEvaluate}
-          className="bg-mode-link text-mode-bg-dark "
-        >
-          Evaluate Result
-        </button>
+          <button
+            onClick={onClickEvaluate}
+            className="bg-mode-link text-mode-bg-dark "
+          >
+            Evaluate Result
+          </button>
         </a>
       </div>
       <div className="flex flex-col items-center gap-[40px] p-8  sm:p-[40px]">
@@ -120,7 +136,10 @@ const Summary = () => {
         </div>
 
         {/* Evaluation */}
-        <div className="bg-[#fffffe] rounded-lg shadow-xl w-full" id="Evaluation">
+        <div
+          className="bg-[#fffffe] rounded-lg shadow-xl w-full"
+          id="Evaluation"
+        >
           <div className="border-b-2 border-solid py-[16px] px-[32px] flex flex-col gap-4 items-start sm:flex-row sm:justify-between sm:items-center">
             <h1 className="font-semibold">Evaluation</h1>
             <Selector
@@ -131,17 +150,13 @@ const Summary = () => {
           <div className="flex flex-col lg:flex-row gap-16 items-center justify-center p-8 sm:p-[72px]">
             <div className="flex flex-col items-center  gap-16">
               <div className="w-full flex flex-col items-center gap-4 text-center">
-                <div className="font-semibold text-lg sm:text-xl">Current CGPA</div>
+                <div className="font-semibold text-lg sm:text-xl">
+                  Current CGPA
+                </div>
                 <div className="font-bold text-xl sm:text-2xl">
                   {getCurrentCGPA(GpaData)}
                 </div>
 
-                {/* <div
-                  className="w-full relative bg-slate-400 rounded-full text-center text-slate-100 "
-                  title={`${((getCurrentCGPA(GpaData)/5)*100).toFixed(0)}%`}
-                >
-                  <div className={`bg-[#6246EA] absolute h-full rounded-full w-[100%]`}>{3+1}</div>{`${((getCurrentCGPA(GpaData)/5)*100).toFixed(0)}%`}
-                </div> */}
                 <div className="font-semibold text-mode-link">
                   {getClass(getCurrentCGPA(GpaData))}
                 </div>
@@ -160,12 +175,6 @@ const Summary = () => {
                     GpaData
                   )}
                 </div>
-                {/* <div
-                  className="w-full bg-[#D1D1E9] rounded-full h-2.5"
-                  title="50%"
-                >
-                  <div className="bg-[#6246EA] h-2.5 rounded-full w-[88%]"></div>
-                </div> */}
               </div>
             </div>
 
