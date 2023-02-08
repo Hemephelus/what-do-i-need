@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="text-[12px] flex gap-[32px] text-mode-bg-light  ">
 
           <a
-            href="#Features"
+            href="/#Features"
             className="font-semibold hover:text-mode-link text-[12px] md:text-lg"
             >Features</a>
              {/* <a

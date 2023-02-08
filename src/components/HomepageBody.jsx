@@ -122,9 +122,9 @@ const HomepageBody = () => {
                   alt={"Comprehensive Icon"}
                 />
               </figure>
-              <h1>Break Down</h1>
+              <h1>Comprehensive</h1>
               <p>
-                View the quick break down on how GPAs and CGPA are calculated.
+              Get a comprehensive view all your courses with a more in-depth break down
               </p>
             </div>
           </div>

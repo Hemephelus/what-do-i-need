@@ -63,7 +63,7 @@ button {
 }
 
 .Hero-sub-headline p {
-  @apply lg:text-3xl lg:text-mode-paragraph-light lg:font-medium;
+  @apply lg:text-3xl text-mode-paragraph-light lg:font-medium;
 }
 
 .App {

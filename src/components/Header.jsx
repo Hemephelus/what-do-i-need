@@ -10,9 +10,10 @@ const Header = () => {
         </Link>
         <div className="flex gap-4 md:gap-12">
           <a
-            href="#Features"
+            href="/#Features"
             className="font-semibold text-mode-headline-light hover:text-mode-link text-[12px] md:text-lg "
             >Features</a>
+            
           {/* <a
             href="#Guide"
             className="font-semibold text-mode-headline-light hover:text-mode-link text-[12px] md:text-lg"

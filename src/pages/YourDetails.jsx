@@ -68,13 +68,7 @@ const YourDetails = () => {
               callback={getDropDownValue}
             />
           </div>
-          {/* <div className="detail-input flex flex-col gap-[8px]">
-            <h3 className="font-medium ">What class do you want to be in?</h3>
-            <Selector
-              DropDownList={yourDetailsDropDown.ClassLevels}
-              callback={getDropDownValue}
-            />
-          </div> */}
+ 
         </div>
         {condition ? (
           <Link to="/dashboard">
