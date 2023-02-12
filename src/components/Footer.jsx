@@ -11,10 +11,6 @@ const Footer = () => {
             href="/#Features"
             className="font-semibold hover:text-mode-link text-[12px] md:text-lg"
             >Features</a>
-             {/* <a
-            href="#Guide"
-            className="font-semibold hover:text-mode-link text-[12px] md:text-lg"
-            >Guide</a> */}
           <a
             href="https://discord.gg/Stm6uZuf"
             target="_blank"
@@ -24,6 +20,11 @@ const Footer = () => {
             Community
           </a>
           
+             <a
+            href="https://sites.google.com/view/nwachukwuujubuonu/home"
+            className="font-semibold hover:text-mode-link text-[12px] md:text-lg"
+            target="_blank"
+            >Developer</a>
         </div>
       </div>
     </div>
