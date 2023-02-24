@@ -12,7 +12,7 @@ const Footer = () => {
             className="font-semibold hover:text-mode-link text-[12px] md:text-lg"
             >Features</a>
           <a
-            href="https://discord.gg/Stm6uZuf"
+            href="https://discord.gg/7UgbfCcX3Q"
             target="_blank"
             rel="noreferrer"
             className="font-semibold hover:text-mode-link text-[12px] md:text-lg"
