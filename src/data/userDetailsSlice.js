@@ -21,16 +21,16 @@ export const userDetailsSlice = createSlice({
       setUniversity: (state, action) => {
         state.university = action.payload;
       },
-      setCourse: (state, action) => {
+      setDepartment: (state, action) => {
         state.department = action.payload;
       },
-      setDuration: (state, action) => {
+      setDurationOfCourse: (state, action) => {
         state.durationOfCourse = action.payload;
       }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setUser, setName, setUniversity, setCourse, setDuration } = userDetailsSlice.actions
+export const { setUser, setName, setUniversity, setDepartment, setDurationOfCourse } = userDetailsSlice.actions
 
 export default userDetailsSlice.reducer

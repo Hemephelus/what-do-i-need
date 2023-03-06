@@ -59,7 +59,7 @@ const Selector = ({ DropDownList, callback }) => {
               if (listItem?.name?.toLowerCase() !== selected.toLowerCase()) {
                 setSelected(listItem?.name);
                 setOpen(false);
-                callback(listItem?.name, selectionName);
+                callback(listItem?.name);
                 setInputValue("");
               }
             }}

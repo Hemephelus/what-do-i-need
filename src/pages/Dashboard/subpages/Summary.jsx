@@ -15,7 +15,11 @@ import yourDetailsDropDown,{
   generateCGPAChangeChart,
 } from "../../../util";
 
+import { useSelector, useDispatch } from "react-redux";
+
 const Summary = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
   let durationSelected = yourDetails.UserData.DurationOfCourse;
   let durationNumber = durationSelected.split("")[0] * 2;
@@ -87,7 +91,7 @@ const Summary = () => {
     localStorage.setItem("CalcDetails", JSON.stringify(yourDetailsDropDown));
   };
 
-  if (Object.values(yourDetails.UserData).every((val) => val === "")) {
+  if (Object.values(user).every((val) => val === "")) {
     return (
       <div className=" bg-mode-bg-light flex flex-col justify-center items-center h-screen text-mode-headline-light  ">
         <div className="max-w-lg text-center flex flex-col gap-4 p-8 sm:gap-16">
