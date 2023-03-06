@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Selector from "components/Selector";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import {  setName, setUniversity, setCourse, setDuration } from 'data/userDetailsSlice'
 
 const YourDetails = () => {
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
 
   const yourDetailsDropDown = JSON.parse(localStorage.getItem('CalcDetails')) 
-
   const [userData, setUserData] = useState(yourDetailsDropDown.UserData);
-  const [inputValue, setInputValue] = useState("");
+  // const [inputValue, setInputValue] = useState("");
   const [condition, setCondition] = useState(false);
   
   const handleInputChange = (event) => {
-    let newInputValue = event.target.value
-    setInputValue(event.target.value);
-    let updatedUserData = { ...userData };
-    updatedUserData.FullName = newInputValue;
-    setUserData(updatedUserData);
-    yourDetailsDropDown["UserData"] = updatedUserData
-    localStorage.setItem('CalcDetails', JSON.stringify(yourDetailsDropDown));
+    dispatch(setName(event.target.value));    
   };
 
   const getDropDownValue = (selectedValue, selectionName) => {
@@ -43,7 +40,7 @@ const YourDetails = () => {
             <input
               type="text"
               className="bg-mode-bg-light min-w-[200px] w-full h-[35px] p-2 flex items-center justify-between rounded overflow-hidden outline-none border  hover:border-mode-paragraph-light"
-              value={inputValue}
+              value={user.name}
               onChange={handleInputChange}
             />
           </div>
