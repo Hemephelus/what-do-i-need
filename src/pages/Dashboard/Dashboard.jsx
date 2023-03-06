@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import SideBar from "../components/SideBar";
-import Summary from "./Summary";
+import SideBar from "./SideBar";
+import Summary from "./subpages/Summary";
 // import StatsBar from '../components/StatsBar'
-import Comprehensive from "./Comprehensive";
-import BreakDown from "./BreakDown";
-import YourProfile from "./YourProfile";
-import PrintResult from "./PrintResult";
+import Comprehensive from "./subpages/Comprehensive";
+import BreakDown from "./subpages/BreakDown";
+import YourProfile from "./subpages/YourProfile";
+import PrintResult from "./subpages/PrintResult";
 
 const Dashboard = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Selector from "../components/Selector";
+import Selector from "components/Selector";
 import { Link } from "react-router-dom";
 
 const YourDetails = () => {

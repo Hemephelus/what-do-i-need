@@ -6,7 +6,7 @@ import { CgProfile } from "react-icons/cg";
 import { AiOutlineHome } from "react-icons/ai";
 import { TbLayoutSidebarLeftExpand,TbLayoutSidebarRightExpand } from "react-icons/tb";
 import { Link } from "react-router-dom";
-import yourDetailsDropDown from "../util";
+import yourDetailsDropDown from "../../util";
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);

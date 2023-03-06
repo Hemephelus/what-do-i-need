@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import Dashboard from "./pages/Dashboard";
+import Homepage from "./pages/Home/Homepage";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import yourDetailsDropDown from "./util";
 import { useEffect } from "react";
 

@@ -4,7 +4,7 @@ import {
   getClass,
   getPercentageChange,
   getCalculatedCGPA,
-} from "../util";
+} from "../../../util";
 
 const TableComp = () => {
   const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));

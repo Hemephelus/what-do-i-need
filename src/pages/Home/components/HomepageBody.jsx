@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Typical from 'react-typical';
 import {FiArrowRight} from "react-icons/fi";
-import summaryIcon from "../assets/home-page/Summary Icon.png";
-import BreakDownIcon from "../assets/home-page/Break Down.png";
-import ComprehensiveIcon from "../assets/home-page/Comprehensive Icon.png";
-import PrintPreviewIcon from "../assets/home-page/Print Preview.png";
-import HeroImage from "../assets/home-page/Hero_Image.png"
+import summaryIcon from  'assets/home-page/Summary Icon.png';
+import BreakDownIcon from "assets/home-page/Break Down.png";
+import ComprehensiveIcon from "assets/home-page/Comprehensive Icon.png";
+import PrintPreviewIcon from "assets/home-page/Print Preview.png";
+import HeroImage from "assets/home-page/Hero_Image.png"
 import { HowToCarousel } from './Carousel';
 // import {DemoCarousel} from './CarouselItem'
 

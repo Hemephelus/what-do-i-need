@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TableComp from "../components/TableComp";
-import Selector from "../components/Selector";
+import Selector from "../../../components/Selector";
 import LineChart from "../components/LineChart";
 import { Link } from "react-router-dom";
 import yourDetailsDropDown,{
@@ -13,7 +13,7 @@ import yourDetailsDropDown,{
   generateGPAChart,
   generateGPATableData,
   generateCGPAChangeChart,
-} from "../util";
+} from "../../../util";
 
 const Summary = () => {
   const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
