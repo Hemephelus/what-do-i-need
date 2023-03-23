@@ -26,7 +26,7 @@ export const userDetailsSlice = createSlice({
       },
       setDurationOfCourse: (state, action) => {
         state.durationOfCourse = action.payload;
-      }
+      },
   },
 })
 

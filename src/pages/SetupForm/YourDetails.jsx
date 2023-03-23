@@ -8,6 +8,7 @@ import {
   setDepartment,
   setDurationOfCourse,
 } from "data/userDetailsSlice";
+import {createGpaTable} from "data/gpaTableSlice"
 import yourDetailsDropDown from "./utils";
 
 const YourDetails = () => {
@@ -26,6 +27,7 @@ const YourDetails = () => {
   };
   const getDurationOfCourseValue = (selectedValue) => {
     dispatch(setDurationOfCourse(selectedValue));
+    dispatch(createGpaTable(selectedValue));
   };
 
   useEffect(() => {

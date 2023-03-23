@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import SideBar from "./SideBar";
-import Summary from "./subpages/Summary";
+import Summary from "./subpages/Summary/Summary";
 // import StatsBar from '../components/StatsBar'
 import Comprehensive from "./subpages/Comprehensive";
 import BreakDown from "./subpages/BreakDown";

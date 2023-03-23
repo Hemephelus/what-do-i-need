@@ -1,41 +1,5 @@
 const yourDetailsDropDown = {
-  Universities: {
-    name: "Universities",
-    labeName: "Select University",
-    placeholderName: "Enter University name",
-    listItems: [{ name: "Pan-Atlantic University" }, { name: "Others" }],
-  },
-  Departments: {
-    name: "Departments",
-    labeName: "Select Departments",
-    placeholderName: "Enter Departments name",
-    listItems: [
-      { name: "ACCOUNTING" },
-      { name: "BANKING AND FINANCE" },
-      { name: "BUSINESS ADMINISTRATION" },
-      { name: "COMPUTER SCIENCE" },
-      { name: "ELECTRICAL/ELECTRONICS ENGINEERING" },
-      { name: "INDUSTRIAL RELATIONS AND PERSONNEL MANAGEMENT" },
-      { name: "INFORMATION SCIENCE AND MEDIA STUDIES" },
-      { name: "ECONOMICS" },
-      { name: "MASS COMMUNICATION" },
-      { name: "MARKETING" },
-      { name: "MECHANICAL ENGINEERING" },
-      { name: "Others" },
-    ],
-  },
-  DurationOfCourse: {
-    name: "DurationOfCourse",
-    labeName: "Select Duration Of Course",
-    placeholderName: "Enter Duration",
-    listItems: [
-      { name: "2 years", "2 years": 2 },
-      { name: "3 years", "3 years": 3 },
-      { name: "4 years", "4 years": 4 },
-      { name: "5 years", "5 years": 5 },
-      { name: "6 years", "6 years": 6 },
-    ],
-  },
+
   ClassLevels: {
     name: "ClassLevels",
     labeName: "Select Class Levels",
@@ -48,12 +12,12 @@ const yourDetailsDropDown = {
     ],
   },
 
-  UserData: {
-    FullName: "",
-    Universities: "",
-    Departments: "",
-    DurationOfCourse: "",
-  },
+  // UserData: {
+  //   FullName: "",
+  //   Universities: "",
+  //   Departments: "",
+  //   DurationOfCourse: "",
+  // },
 
   MinimumGPAPerClass: {
     "First Class": 4.495,
@@ -62,29 +26,29 @@ const yourDetailsDropDown = {
     "Third Class": 0.0,
   },
 
-  GpaData: [],
+  // GpaData: [],
 };
 
-export function generateGPATableData(durationNumber) {
-  const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
-  if(yourDetails.GpaData.length !== 0)return yourDetails.GpaData
+// export function generateGPATableData(durationNumber) {
+//   const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
+//   if(yourDetails.GpaData.length !== 0)return yourDetails.GpaData
 
-  let gpaTable = [];
+//   let gpaTable = [];
 
-  for (let i = 1; i <= durationNumber; i++) {
-    gpaTable.push({
-      id: i,
-      Year: Math.ceil(i / 2),
-      Semester: ((i + 1) % 2) + 1,
-      GPA: 0.0,
-      Class: "-",
-      CGPA: 0.0,
-      Change: "-",
-    });
-  }
+//   for (let i = 1; i <= durationNumber; i++) {
+//     gpaTable.push({
+//       id: i,
+//       Year: Math.ceil(i / 2),
+//       Semester: ((i + 1) % 2) + 1,
+//       GPA: 0.0,
+//       Class: "-",
+//       CGPA: 0.0,
+//       Change: "-",
+//     });
+//   }
 
-  return gpaTable;
-}
+//   return gpaTable;
+// }
 
 export function getClass(gpa) {
   const x = yourDetailsDropDown.ClassLevels.listItems;
@@ -139,13 +103,13 @@ export function getCalculatedCGPA(cgpaList = [], index) {
     sum += arr[i];
   }
 
-  if (sum === 0) return "-";
+  if (sum === 0) return false;
 
   const total = cgpaList.reduce((acc, current) => {
     return acc + current;
   }, 0);
 
-  return (total / cgpaList.length).toFixed(2);
+  return total / cgpaList.length;
 }
 
 export function calculateMinimumGPAForaClass(

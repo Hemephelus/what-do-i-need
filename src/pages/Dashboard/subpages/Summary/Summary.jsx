@@ -1,32 +1,37 @@
 import React, { useEffect, useState } from "react";
-import TableComp from "../components/TableComp";
-import Selector from "../../../components/Selector";
-import LineChart from "../components/LineChart";
+import TableComp from "./components/TableComp";
+import Selector from "../../../../components/Selector";
+import LineChart from "../../components/LineChart";
 import { Link } from "react-router-dom";
 import yourDetailsDropDown,{
   getClass,
   getPercentageChange,
   getCalculatedCGPA,
-  getCurrentCGPA,
+  // getCurrentCGPA,
   calculateMinimumGPAForaClass,
   generateInitialLineChart,
   generateGPAChart,
-  generateGPATableData,
   generateCGPAChangeChart,
-} from "../../../util";
-
+} from "pages/Dashboard/util";
+import {
+  setClassLevel
+} from "data/desiredClassLevelSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Evaluation from "./components/Evaluation";
+
 
 const Summary = () => {
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  const gpaTable = useSelector((state) => state.all_gpa_table);
+  const dispatch = useDispatch();   
   const yourDetails = JSON.parse(localStorage.getItem("CalcDetails"));
-  let durationSelected = yourDetails.UserData.DurationOfCourse;
+  let durationSelected = user.durationOfCourse;
   let durationNumber = durationSelected.split("")[0] * 2;
-  const userName = yourDetails.UserData.FullName;
+
+  const userName = user.name;
 
 
-  const [GpaData, SetGpaData] = useState(generateGPATableData(durationNumber));
+  const [GpaData, SetGpaData] = useState(gpaTable);
   yourDetails.GpaData = GpaData;
   localStorage.setItem("CalcDetails", JSON.stringify(yourDetails));
 
@@ -82,8 +87,8 @@ const Summary = () => {
     graphGenerator(newGpaData,desiredClass)
   };
 
-  const getDropDownValue = (selectedValue, selectionName) => {
-    SetDesiredClass(selectedValue);
+  const getClassLevelValue = (selectedValue) => {
+    dispatch(setClassLevel(selectedValue));
     graphGenerator(GpaData,selectedValue)
   };
 
@@ -131,7 +136,9 @@ const Summary = () => {
           </button>
         </a>
       </div>
-      <div className="flex flex-col items-center gap-[40px] p-8  sm:p-[40px]">
+      
+      {/* GPA TABLE DATA */}
+      <div className="flex flex-col items-center gap-[40px] p-4  sm:p-[40px]">
         <div className="bg-[#fffffe] rounded-lg shadow-xl pb-4 w-full">
           <div className="border-b-2 border-solid py-[16px] px-[32px]">
             <h1 className=" font-semibold ">OVERVIEW</h1>
@@ -139,109 +146,22 @@ const Summary = () => {
           <TableComp />
         </div>
 
-        {/* Evaluation */}
+        {/* EVALUATION */}
         <div
           className="bg-[#fffffe] rounded-lg shadow-xl w-full"
           id="Evaluation"
         >
-          <div className="border-b-2 border-solid py-[16px] px-[32px] flex flex-col gap-4 items-start sm:flex-row sm:justify-between sm:items-center">
+        <div className="border-b-2 border-solid py-[16px] px-[32px] flex flex-col gap-4 items-start sm:flex-row sm:justify-between sm:items-center">
             <h1 className="font-semibold">Evaluation</h1>
             <Selector
               DropDownList={yourDetails.ClassLevels}
-              callback={getDropDownValue}
+              callback={getClassLevelValue}
             />
           </div>
-          <div className="flex flex-col lg:flex-row gap-16 items-center justify-center p-8 sm:p-[72px]">
-            <div className="flex flex-col items-center  gap-16">
-              <div className="w-full flex flex-col items-center gap-4 text-center">
-                <div className="font-semibold text-lg sm:text-xl">
-                  Current CGPA
-                </div>
-                <div className="font-bold text-xl sm:text-2xl">
-                  {getCurrentCGPA(GpaData)}
-                </div>
-
-                <div className="font-semibold text-mode-link">
-                  {getClass(getCurrentCGPA(GpaData))}
-                </div>
-              </div>
-              <div className="h-[2px] w-[50%] bg-slate-300"></div>
-              <div className="w-full flex flex-col items-center gap-4">
-                <div className="font-medium text-sm sm:text-lg text-center">
-                  Minimum GPA to be a{" "}
-                  <span className="text-mode-link">{desiredClass}</span>{" "}
-                  Student.
-                </div>
-                <div className="font-bold text-xl sm:text-2xl">
-                  {calculateMinimumGPAForaClass(
-                    desiredClass,
-                    duration,
-                    GpaData
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Interpretation */}
-            <div className="flex flex-col gap-8 text-center items-center sm:text-lg max-w-lg bg-slate-100 px-4 py-8 rounded-lg shadow-xl">
-              <div>
-                Your current CGPA is{" "}
-                <span className="font-semibold">{getCurrentCGPA(GpaData)}</span>
-                , Making you a{" "}
-                <span className="font-semibold">
-                  {getClass(getCurrentCGPA(GpaData))}
-                </span>{" "}
-                student.
-              </div>
-              <div className="h-[2px] w-[50%] bg-slate-300"></div>
-              <div>
-                For you to be a{" "}
-                <span className="font-semibold">{desiredClass}</span> student,
-                you would need to get a minimum GPA of{" "}
-                <span className="font-semibold">
-                  {calculateMinimumGPAForaClass(
-                    desiredClass,
-                    duration,
-                    GpaData
-                  )}
-                </span>{" "}
-                for the remaining semesters.
-              </div>
-
-              <div className="h-[2px] w-[50%] bg-slate-300"></div>
-              <div>
-                This is{" "}
-                <span className="font-semibold">
-                  {calculateMinimumGPAForaClass(
-                    desiredClass,
-                    duration,
-                    GpaData
-                  ) >= 0 &&
-                  calculateMinimumGPAForaClass(
-                    desiredClass,
-                    duration,
-                    GpaData
-                  ) < 5
-                    ? "achievable"
-                    : "unachievable"}
-                </span>{" "}
-                if you decide to{" "}
-                <span className="font-semibold">
-                  {calculateMinimumGPAForaClass(
-                    desiredClass,
-                    duration,
-                    GpaData
-                  ) >= getCurrentCGPA(GpaData)
-                    ? "work hard"
-                    : "slack off"}
-                </span>
-                .
-              </div>
-            </div>
-          </div>
+          <Evaluation/>
         </div>
 
-        {/* gpa vs cgpa */}
+        {/* GPA VS CGPA OVERTIME */}
         <div className="bg-[#fffffe] rounded-lg shadow-xl w-full">
           <div className="border-b-2 border-solid py-[16px] px-[32px]">
             <h1 className="font-semibold">GPA VS CGPA OVERTIME</h1>
@@ -250,6 +170,8 @@ const Summary = () => {
             <LineChart LchartData={GPAChartData} axisLab={GPAAxisLabels} />
           </div>
         </div>
+        
+        {/* CGPA PERCENTAGE CHANGE OVERTIME */}
         <div className="bg-[#fffffe] rounded-lg shadow-xl w-full">
           <div className="border-b-2 border-solid py-[16px] px-[32px]">
             <h1 className="font-semibold">CGPA PERCENTAGE CHANGE OVERTIME</h1>
